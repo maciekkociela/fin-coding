@@ -1,2 +1,2 @@
-# fin-coding
+# fin-blocks
 Created with CodeSandbox
