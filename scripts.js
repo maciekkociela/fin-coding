@@ -1,25 +1,21 @@
 Blockly.Blocks["add_class"] = {
   init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ["Add", "addClass"],
+        ["Remove", "removeClass"]
+      ]),
+      "NAME"
+    );
     this.appendDummyInput()
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["Add", "addClass"],
-          ["Remove", "removeClass"]
-        ]),
-        "NAME"
-      )
-      .appendField("Class");
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("class")
+      .appendField(new Blockly.FieldTextInput("default"), "add_class");
     this.appendValueInput("trigger_class")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("to");
-    this.appendValueInput("action_class")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(
-        new Blockly.FieldLabelSerializable("add class"),
-        "add_class"
-      );
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);

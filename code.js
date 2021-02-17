@@ -1,13 +1,9 @@
 Blockly.JavaScript["add_class"] = function (block) {
   var dropdown_name = block.getFieldValue("NAME");
+  var text_add_class = block.getFieldValue("add_class");
   var value_trigger_class = Blockly.JavaScript.valueToCode(
     block,
     "trigger_class",
-    Blockly.JavaScript.ORDER_NONE
-  );
-  var value_action_class = Blockly.JavaScript.valueToCode(
-    block,
-    "action_class",
     Blockly.JavaScript.ORDER_NONE
   );
   // TODO: Assemble JavaScript into code variable.
@@ -16,9 +12,9 @@ Blockly.JavaScript["add_class"] = function (block) {
     value_trigger_class +
     ")." +
     dropdown_name +
-    "(" +
-    value_action_class +
-    ");\n";
+    "('" +
+    text_add_class +
+    "');\n";
   return code;
 };
 
@@ -105,9 +101,9 @@ Blockly.JavaScript["fslibraryanimation"] = function (block) {
   var dropdown_effects = block.getFieldValue("effects");
   // TODO: Assemble JavaScript into code variable.
   var code =
-    "{\n duration: " +
+    "{\nenable: true,\n duration: " +
     number_duration +
-    "s,\n easing: '" +
+    ",\n easing: '" +
     dropdown_easing +
     "',\n effects: '" +
     dropdown_effects +
