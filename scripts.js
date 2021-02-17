@@ -121,7 +121,7 @@ Blockly.Blocks["fslibraryanimation"] = {
     this.appendDummyInput().appendField("animation");
     this.appendDummyInput()
       .appendField("duration")
-      .appendField(new Blockly.FieldNumber(0.2, 0, Infinity, 0.01), "NAME");
+      .appendField(new Blockly.FieldNumber(0.2, 0, Infinity, 0.01), "duration");
     this.appendDummyInput()
       .appendField("easing")
       .appendField(
@@ -130,7 +130,7 @@ Blockly.Blocks["fslibraryanimation"] = {
           ["ease", "ease"],
           ["easein", "easein"]
         ]),
-        "NAME"
+        "easing"
       );
     this.appendDummyInput()
       .appendField("effects")
@@ -139,7 +139,7 @@ Blockly.Blocks["fslibraryanimation"] = {
           ["fade", "fade"],
           ["slide", "slide"]
         ]),
-        "NAME"
+        "effects"
       );
     this.setOutput(true, null);
     this.setColour(0);

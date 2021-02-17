@@ -3,12 +3,12 @@ Blockly.JavaScript["add_class"] = function (block) {
   var value_trigger_class = Blockly.JavaScript.valueToCode(
     block,
     "trigger_class",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var value_action_class = Blockly.JavaScript.valueToCode(
     block,
     "action_class",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   // TODO: Assemble JavaScript into code variable.
   var code =
@@ -27,7 +27,7 @@ Blockly.JavaScript["mouse_event"] = function (block) {
   var value_into = Blockly.JavaScript.valueToCode(
     block,
     "into",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
   // TODO: Assemble JavaScript into code variable.
@@ -57,54 +57,61 @@ Blockly.JavaScript["this"] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["fslibrary"] = function (block) {
-  var text_funtion_name = block.getFieldValue("funtion_name");
-  var value_button = Blockly.JavaScript.valueToCode(
-    block,
-    "button",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-  var dropdown_resetix = block.getFieldValue("resetIX");
-  // TODO: Assemble JavaScript into code variable.
-  var code = "...;\n";
-  return code;
-};
-
 Blockly.JavaScript["fslibraryloadmore"] = function (block) {
   var text_funtion_name = block.getFieldValue("funtion_name");
   var value_button = Blockly.JavaScript.valueToCode(
     block,
     "button",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var value_collection_list = Blockly.JavaScript.valueToCode(
     block,
     "collection-list",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var value_animation = Blockly.JavaScript.valueToCode(
     block,
     "animation",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var value_effect = Blockly.JavaScript.valueToCode(
     block,
     "effect",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   var dropdown_resetix = block.getFieldValue("resetIX");
   // TODO: Assemble JavaScript into code variable.
   var code =
-    "\n(function() {\nvar fsMagic = new FsLibrary('" + value_button + "');\n";
+    "\n(function() {\nvar " +
+    text_funtion_name +
+    " = new FsLibrary(" +
+    value_collection_list +
+    ");\n" +
+    text_funtion_name +
+    "loadmore({\nbutton: " +
+    value_button +
+    ",\nresetIx: " +
+    dropdown_resetix +
+    ",\nanimation: " +
+    value_animation +
+    "\n});";
+
   return code;
 };
 
 Blockly.JavaScript["fslibraryanimation"] = function (block) {
-  var number_name = block.getFieldValue("NAME");
-  var dropdown_name = block.getFieldValue("NAME");
-  var dropdown_name = block.getFieldValue("NAME");
+  var number_duration = block.getFieldValue("duration");
+  var dropdown_easing = block.getFieldValue("easing");
+  var dropdown_effects = block.getFieldValue("effects");
   // TODO: Assemble JavaScript into code variable.
-  var code = "...";
+  var code =
+    "{\n duration: " +
+    number_duration +
+    "s,\n easing: '" +
+    dropdown_easing +
+    "',\n effects: '" +
+    dropdown_effects +
+    "',\n },\n";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
