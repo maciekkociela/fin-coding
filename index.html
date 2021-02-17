@@ -57,7 +57,7 @@
         <div id="blocklyDiv"></div>
       </div>
       <div class="flexBox flexCode">
-        <button id="copy">Copy JavaScript</button>
+        <!-- <button id="copy">Copy JavaScript</button> -->
 
         <div>
           <span id="saveText">💾 Save blocks:</span>
@@ -630,10 +630,10 @@
         .addEventListener("change", loadWorkspaceFromUpload, false);
 
       $("#copy").on("click", function () {
-        var copyText = $("#codeBox").html();
+        var copyText = $("#codeBox").text();
         document.execCommand("copy");
         navigator.clipboard.writeText(copyText);
-        alert("Code copied");
+        alert("Code copied" + copyText);
       });
 
       function runCode() {
