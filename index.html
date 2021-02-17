@@ -630,7 +630,7 @@
         .addEventListener("change", loadWorkspaceFromUpload, false);
 
       $("#copy").on("click", function () {
-        var copyText = $("#codeBox").text();
+        var copyText = $("#codeBox").html();
         document.execCommand("copy");
         navigator.clipboard.writeText(copyText);
         alert("Code copied");
