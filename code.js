@@ -77,6 +77,11 @@ Blockly.JavaScript["fslibraryloadmore"] = function (block) {
     "button",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  var value_collection_list = Blockly.JavaScript.valueToCode(
+    block,
+    "collection-list",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
   var value_animation = Blockly.JavaScript.valueToCode(
     block,
     "animation",
@@ -89,7 +94,8 @@ Blockly.JavaScript["fslibraryloadmore"] = function (block) {
   );
   var dropdown_resetix = block.getFieldValue("resetIX");
   // TODO: Assemble JavaScript into code variable.
-  var code = "...;\n";
+  var code =
+    "\n(function() {\nvar fsMagic = new FsLibrary('" + value_button + "');\n";
   return code;
 };
 

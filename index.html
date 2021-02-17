@@ -38,6 +38,17 @@
       .blocklyTreeRow {
         padding-left: 0 !important;
       }
+      .codeBox {
+        background: #222;
+        color: #fff;
+        margin-top: 32px;
+        padding: 32px;
+      }
+      #codeBox {
+        background: #222;
+        color: #fff;
+        white-space: pre-line;
+      }
     </style>
   </head>
   <body>
@@ -56,11 +67,12 @@
           <span id="loadText">📂 Load blocks:</span>
           <input type="file" id="fileButton" style="max-width: 200px;" />
         </div>
-
-        <p id="codeBox">
-          This is a simple demo of generating code from blocks and running the
-          code in a sandboxed JavaScript interpreter.
-        </p>
+        <div class="codeBox">
+          <code id="codeBox">
+            This is a simple demo of generating code from blocks and running the
+            code in a sandboxed JavaScript interpreter.
+          </code>
+        </div>
       </div>
     </div>
 
@@ -98,9 +110,14 @@
         <block type="fslibraryloadmore">
           <field name="funtion_name">fsMagic</field>
           <field name="resetIX">true</field>
+          <value name="collection-list">
+            <block type="class_name">
+              <field name="class">items-list</field>
+            </block>
+          </value>
           <value name="button">
             <block type="class_name">
-              <field name="class">class</field>
+              <field name="class">button-more</field>
             </block>
           </value>
           <value name="animation">
@@ -515,7 +532,7 @@
           <block type="text_print" inline="false">
             <value name="TEXT">
               <block type="text">
-                <field name="TEXT">Don't ccc</field>
+                <field name="TEXT">FinSweet</field>
               </block>
             </value>
           </block>
@@ -524,7 +541,7 @@
           <block type="text_print" inline="false">
             <value name="TEXT">
               <block type="text">
-                <field name="TEXT">Panic</field>
+                <field name="TEXT">JS Blocks</field>
               </block>
             </value>
           </block>

@@ -81,6 +81,10 @@ Blockly.Blocks["fslibraryloadmore"] = {
     this.appendDummyInput()
       .appendField("function name")
       .appendField(new Blockly.FieldTextInput("fsMagic"), "funtion_name");
+    this.appendValueInput("collection-list")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("collection list");
     this.appendValueInput("button")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
