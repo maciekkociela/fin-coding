@@ -14,7 +14,7 @@ Blockly.Blocks["add_class"] = {
     this.appendValueInput("trigger_class")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("to");
+      .appendField("to/from");
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
