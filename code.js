@@ -84,13 +84,13 @@ Blockly.JavaScript["fslibraryloadmore"] = function (block) {
     value_collection_list +
     ");\n" +
     text_funtion_name +
-    "loadmore({\nbutton: " +
+    ".loadmore({\nbutton: " +
     value_button +
     ",\nresetIx: " +
     dropdown_resetix +
     ",\nanimation: " +
     value_animation +
-    "\n})();";
+    "\n})\n})();";
 
   return code;
 };
