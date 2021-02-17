@@ -90,7 +90,7 @@ Blockly.JavaScript["fslibraryloadmore"] = function (block) {
     dropdown_resetix +
     ",\nanimation: " +
     value_animation +
-    "\n});";
+    "\n})();";
 
   return code;
 };
