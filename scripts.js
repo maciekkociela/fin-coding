@@ -1,9 +1,81 @@
+Blockly.Blocks["get_checkbox"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("input");
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT);
+    this.appendStatementInput("NAME").setCheck(null).appendField("do");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["change_text"] = {
+  init: function () {
+    this.appendValueInput("text").setCheck(null).appendField("set text");
+    this.appendValueInput("element")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("in");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["element"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["class", "."],
+          ["id", "#"],
+          ["tag", ""],
+          ["bloc", "bloc"]
+        ]),
+        "element"
+      )
+      .appendField(new Blockly.FieldTextInput("class-name"), "NAME");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["range_slider_move"] = {
+  init: function () {
+    this.appendValueInput("move")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("range swiper");
+    this.appendValueInput("name")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("input name");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(60);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks["add_class"] = {
   init: function () {
     this.appendDummyInput().appendField(
       new Blockly.FieldDropdown([
         ["Add", "addClass"],
-        ["Remove", "removeClass"]
+        ["Remove", "removeClass"],
+        ["Toggle", "toggleClass"]
       ]),
       "NAME"
     );
@@ -15,130 +87,14 @@ Blockly.Blocks["add_class"] = {
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("to/from");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("only child")
+      .appendField(new Blockly.FieldCheckbox("FALSE"), "child");
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks["mouse_event"] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField("On")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["click", "click"],
-          ["mouseover", "mouseover"],
-          ["mouseout", "mouseout"]
-        ]),
-        "on"
-      )
-      .appendField("into");
-    this.appendValueInput("into").setCheck(null);
-    this.appendStatementInput("NAME").setCheck(null);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(150);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks["class_name"] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField("class")
-      .appendField(new Blockly.FieldTextInput("class"), "class");
-    this.setOutput(true, "String");
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks["this"] = {
-  init: function () {
-    this.appendDummyInput().appendField("this");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(330);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks["fslibraryloadmore"] = {
-  init: function () {
-    this.appendDummyInput().appendField("Set Load More Button");
-    this.appendDummyInput()
-      .appendField("function name")
-      .appendField(new Blockly.FieldTextInput("fsMagic"), "funtion_name");
-    this.appendValueInput("collection-list")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("collection list");
-    this.appendValueInput("button")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("button");
-    this.appendValueInput("animation")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("animation");
-    this.appendValueInput("effect")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("effect");
-    this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("resetIX")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["true", "true"],
-          ["false", "false"]
-        ]),
-        "resetIX"
-      );
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks["fslibraryanimation"] = {
-  init: function () {
-    this.appendDummyInput().appendField("animation");
-    this.appendDummyInput()
-      .appendField("duration")
-      .appendField(new Blockly.FieldNumber(0.2, 0, Infinity, 0.01), "duration");
-    this.appendDummyInput()
-      .appendField("easing")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["linear", "linear"],
-          ["ease", "ease"],
-          ["easein", "easein"]
-        ]),
-        "easing"
-      );
-    this.appendDummyInput()
-      .appendField("effects")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["fade", "fade"],
-          ["slide", "slide"]
-        ]),
-        "effects"
-      );
-    this.setOutput(true, null);
-    this.setColour(0);
     this.setTooltip("");
     this.setHelpUrl("");
   }

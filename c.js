@@ -13,7 +13,7 @@ Blockly.JavaScript["get_checkbox"] = function (block) {
     value_value +
     " = $(this).val(); if($(this).is(':checkbox')) { " +
     value_value +
-    "= !$(this).siblings('.w-checkbox-input').hasClass('w--redirected-checked'); } if($.isNumeric(" +
+    "= $(this).siblings('.w-checkbox-input').hasClass('w--redirected-checked'); } if($.isNumeric(" +
     value_value +
     ")) { " +
     value_value +
@@ -66,56 +66,27 @@ Blockly.JavaScript["range_slider_move"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code =
-    "swiper_func_" +
-    value_name +
-    "(" +
-    value_name +
-    ", " +
-    value_move +
-    ");" +
-    " $('[name=" +
-    value_name +
-    "]').on('input', function () { swiper_func_" +
-    value_name +
-    "('" +
-    value_name +
-    "', " +
-    value_move +
-    "); });" +
-    "function swiper_func_" +
-    value_name +
-    " (name, swiper) { name = '[name=' + name + ']';" +
-    " var range = $(name).val(); range = parseFloat(range);" +
-    " var width = $(name).width(); var range_max = $(name).attr('max');" +
-    " width = width / range_max; width = width * (range - 1); " +
-    " $(swiper).css({ transform: 'translateX(' + width + 'px)' }); }";
+  var code = "";
   return code;
 };
 
-Blockly.JavaScript["add_class"] = function (block) {
-  var dropdown_name = block.getFieldValue("NAME");
-  var text_add_class = block.getFieldValue("add_class");
-  var checkbox_child = block.getFieldValue("child") == "TRUE";
-  if (checkbox_child == 1) {
-    checkbox_child = ", this";
-  } else {
-    checkbox_child = "";
-  }
-  var value_trigger_class = Blockly.JavaScript.valueToCode(
-    block,
-    "trigger_class",
-    Blockly.JavaScript.ORDER_NONE
-  );
-  // TODO: Assemble JavaScript into code variable.
-  var code =
-    "$(" +
-    value_trigger_class +
-    checkbox_child +
-    ")." +
-    dropdown_name +
-    "('" +
-    text_add_class +
-    "');\n";
-  return code;
-};
+code =
+  "swiper_func_" +
+  value_name +
+  "(" +
+  value_name +
+  ", " +
+  value_move +
+  ");" +
+  " $('[name=" +
+  value_name +
+  "]').on('input', function () { swiper_func_" +
+  value_name +
+  "(value_name, value_move); });" +
+  "function swiper_func_" +
+  value_name +
+  " (name, swiper) { name = '[name=' + name + ']';" +
+  " var range = $(name).val(); range = parseFloat(swiper_value_name);" +
+  " var width = $(name).width(); var range_max = $(name).attr('max');" +
+  " width = width / range_max; width = width * (range - 1); $(swiper).text(range);" +
+  " $(swiper).css({ transform: 'translateX(' + width + 'px)' }); }";
