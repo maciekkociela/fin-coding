@@ -4,12 +4,16 @@
       style="display: none;"
     >
       <category name="JQuery" colour="%{BKY_TEXTS_HUE}">
-        <block type="controls_if"></block>
         <block type="get_checkbox"></block>
         <block type="change_text"></block>
         <block type="element"></block>
         <block type="range_slider_move"></block>
         <block type="add_class"></block>
+        <block type="airtable"></block>
+        <block type="airtable_field"></block>
+        <block type="submit"></block>
+        <block type="get_data"></block>
+        <block type="get_field"></block>
       </category>
       <category name="Scripting">
         <category name="Logic" colour="#5C81A6">

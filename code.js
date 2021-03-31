@@ -119,3 +119,87 @@ Blockly.JavaScript["add_class"] = function (block) {
     "');\n";
   return code;
 };
+
+Blockly.JavaScript["airtable"] = function (block) {
+  var statements_fields = Blockly.JavaScript.statementToCode(block, "fields");
+
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "var settings = {async: true,crossDomain: true," +
+    'url:"https://api.airtable.com/v0/app73lFU2xt9dJMTR/Calculator?api_key=key1rK5Ixke8MZJ3Q",' +
+    'method: "POST", headers: { "content-type": "application/json"' +
+    "},processData: false," +
+    'data: `{"records": [{"fields": {"ID":"0"' +
+    statements_fields +
+    "}}]}`};" +
+    "$.ajax(settings).done(function (response) {console.log(response);});";
+  return code;
+};
+
+Blockly.JavaScript["airtable_field"] = function (block) {
+  var value_field = Blockly.JavaScript.valueToCode(
+    block,
+    "field",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = ',"' + value_field + '":`+' + value_field + "+`";
+
+  return code;
+};
+
+Blockly.JavaScript["submit"] = function (block) {
+  var text_form = block.getFieldValue("form");
+  var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "$('[data-name=" +
+    text_form +
+    "]').on('submit',function(){\n" +
+    statements_name +
+    "});\n";
+  return code;
+};
+
+Blockly.JavaScript["get_data"] = function (block) {
+  var value_var = Blockly.JavaScript.valueToCode(
+    block,
+    "var",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var statements_fields = Blockly.JavaScript.statementToCode(block, "fields");
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    'var dataTemplate = $("#data-list").html();var data_i = 0;' +
+    '$("#data-list div").remove();' +
+    "$.getJSON(" +
+    '"https://api.airtable.com/v0/app73lFU2xt9dJMTR/Calculator?api_key=key1rK5Ixke8MZJ3Q",' +
+    "function (data_el) {" +
+    "data = [[]]; " +
+    "$.each(data_el.records, function (key, val) {" +
+    "data_i++;" +
+    "var dataTile = dataTemplate;" +
+    "console.log(data_i);" +
+    statements_fields +
+    '$("#data-wrapper").append(dataTile);' +
+    "});" +
+    "}" +
+    ");";
+  return code;
+};
+
+Blockly.JavaScript["get_field"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    'dataTile = dataTile.replace("[' +
+    value_name +
+    ']", val.fields.' +
+    value_name +
+    ");";
+  return code;
+};

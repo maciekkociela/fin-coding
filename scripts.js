@@ -99,3 +99,67 @@ Blockly.Blocks["add_class"] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks["airtable"] = {
+  init: function () {
+    this.appendDummyInput().appendField("airtable");
+    this.appendStatementInput("fields").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["airtable_field"] = {
+  init: function () {
+    this.appendValueInput("field").setCheck(null).appendField("field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["submit"] = {
+  init: function () {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField("submit");
+    this.appendStatementInput("NAME")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("form"), "form");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_data"] = {
+  init: function () {
+    this.appendValueInput("var")
+      .setCheck(null)
+      .appendField("get airtable data in");
+    this.appendStatementInput("fields").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_field"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("get field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
