@@ -9,7 +9,7 @@ Blockly.Blocks["get_checkbox"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(45);
+    this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -143,8 +143,9 @@ Blockly.Blocks["get_data"] = {
   init: function () {
     this.appendValueInput("var")
       .setCheck(null)
-      .appendField("get airtable data in");
+      .appendField("create airtable list");
     this.appendStatementInput("fields").setCheck(null);
+    this.appendStatementInput("do").setCheck(null).appendField("do");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -156,6 +157,333 @@ Blockly.Blocks["get_data"] = {
 Blockly.Blocks["get_field"] = {
   init: function () {
     this.appendValueInput("NAME").setCheck(null).appendField("get field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_parametr"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("get parametr")
+      .appendField(new Blockly.FieldTextInput("parametr"), "parametr");
+    this.setOutput(true, null);
+    this.setColour(90);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["mouse_event"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("On")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["click", "click"],
+          ["mouseover", "mouseover"],
+          ["mouseout", "mouseout"],
+          ["change", "change"]
+        ]),
+        "on"
+      )
+      .appendField("into");
+    this.appendValueInput("into").setCheck(null);
+    this.appendStatementInput("NAME").setCheck(null);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_css"] = {
+  init: function () {
+    this.appendStatementInput("css").setCheck(null).appendField("Set CSS");
+    this.appendValueInput("to")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("to");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["css_value"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["Opacity", "opacity"],
+          ["Background Color", "background-color"],
+          ["Font Size", "font-size"],
+          ["Display", "display"]
+        ]),
+        "NAME"
+      )
+      .appendField(new Blockly.FieldTextInput("0"), "value");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["animate"] = {
+  init: function () {
+    this.appendDummyInput().appendField("animate");
+    this.appendStatementInput("animate").setCheck(null);
+    this.appendValueInput("timing")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("timing [ms]");
+    this.appendValueInput("delay")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("delay [ms]");
+    this.appendValueInput("function")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("easing");
+    this.appendValueInput("element")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("element");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("queue")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "queue");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["animation"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("property"), "property")
+      .appendField(new Blockly.FieldTextInput("value"), "value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["animation_easing"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput("linear"),
+      "easing"
+    );
+    this.setOutput(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["animation_property"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ["opacity", "opacity"],
+        ["backgroundPositionX", "backgroundPositionX"],
+        ["backgroundPositionY", "backgroundPositionY"],
+        ["borderWidth", "borderWidth"],
+        ["borderBottomWidth", "borderBottomWidth"],
+        ["borderLeftWidth", "borderLeftWidth"],
+        ["borderRightWidth", "borderRightWidth"],
+        ["borderTopWidth", "borderTopWidth"],
+        ["borderSpacing", "borderSpacing"],
+        ["margin", "margin"],
+        ["marginBottom", "marginBottom"],
+        ["marginLeft", "marginLeft"],
+        ["marginRight", "marginRight"],
+        ["marginTop", "marginTop"],
+        ["opacity", "opacity"],
+        ["outlineWidth", "outlineWidth"],
+        ["padding", "padding"],
+        ["paddingBottom", "paddingBottom"],
+        ["paddingLeft", "paddingLeft"],
+        ["paddingRight", "paddingRight"],
+        ["paddingTop", "paddingTop"],
+        ["height", "height"],
+        ["width", "width"],
+        ["maxHeight", "maxHeight"],
+        ["maxWidth", "maxWidth"],
+        ["minHeight", "minHeight"],
+        ["minWidth", "minWidth"],
+        ["fontSize", "fontSize"],
+        ["bottom", "bottom"],
+        ["left", "left"],
+        ["right", "right"],
+        ["top", "top"],
+        ["letterSpacing", "letterSpacing"],
+        ["wordSpacing", "wordSpacing"],
+        ["lineHeight", "lineHeight"],
+        ["textIndent", "textIndent"],
+        ["translateX", "translateX"],
+        ["translateY", "translateY"]
+      ]),
+      "property"
+    );
+    this.appendValueInput("NAME").setCheck(null);
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ["", ""],
+        ["px", "px"],
+        ["%", "%"],
+        ["vh", "vh"],
+        ["vw", "vw"]
+      ]),
+      "after_value"
+    );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["airtable_update"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("airtable update");
+    this.appendStatementInput("fields").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_single_airtable"] = {
+  init: function () {
+    this.appendValueInput("id")
+      .setCheck(null)
+      .appendField("get single data from");
+    this.appendStatementInput("action").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_single_field"] = {
+  init: function () {
+    this.appendValueInput("field")
+      .setCheck(null)
+      .appendField("get single field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_key"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("get key");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_text"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("get text");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["this"] = {
+  init: function () {
+    this.appendDummyInput().appendField("this");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+Blockly.Blocks["to_number"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("change into number");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["airtable_url"] = {
+  init: function () {
+    this.appendDummyInput().appendField("airtable");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("base")
+      .appendField(new Blockly.FieldTextInput("base"), "base");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("table")
+      .appendField(new Blockly.FieldTextInput("table"), "table");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("key")
+      .appendField(new Blockly.FieldTextInput("key"), "key");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["draft"] = {
+  init: function () {
+    this.appendDummyInput().appendField("draft");
+    this.appendStatementInput("draft").setCheck(null);
+    this.setColour(105);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_value_from_key"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .appendField("get value from item");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);

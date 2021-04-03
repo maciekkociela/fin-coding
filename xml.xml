@@ -3,19 +3,82 @@
       id="toolbox"
       style="display: none;"
     >
+    <category name="University">
+      <category name="Chapter 1">
+        <block type="set_css"></block>
+        <block type="css_value"></block>
+        <block type="element"></block>     
+        <block type="mouse_event"></block>  
+      </category>
+      <category name="Chapter 2">
+        <block type="change_text"></block> 
+        <block type="text">
+            <field name="TEXT"></field>
+          </block>
+      </category>
+      <category name="Chapter 3" custom="VARIABLE">
+      
+      </category>
+      <category name="Chapter 3b">
+      <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+      </category>
+      <category name="Chapter 4">
+        <block type="controls_if"></block>
+          <block type="logic_compare">
+            <field name="OP">EQ</field>
+          </block>
+      </category>
+      <category
+          name="Chapter 5"
+          custom="PROCEDURE"
+        ></category>
+      <category name="Chapter 6">
+        <block type="add_class"></block>
+      </category>
+      <category name="Chapter 7">
+        <block type="animate"></block>
+        <block type="animation_property"></block>
+        <block type="animation_easing"></block>
+      </category>
+      
+    </category>  
+      <category name="Scripting">
       <category name="JQuery" colour="%{BKY_TEXTS_HUE}">
+        <block type="set_css"></block>
+        <block type="css_value"></block>
+        <block type="mouse_event"></block>
+        <block type="element"></block>       
         <block type="get_checkbox"></block>
         <block type="change_text"></block>
-        <block type="element"></block>
         <block type="range_slider_move"></block>
         <block type="add_class"></block>
-        <block type="airtable"></block>
-        <block type="airtable_field"></block>
+        
         <block type="submit"></block>
         <block type="get_data"></block>
         <block type="get_field"></block>
+        <block type="get_key"></block>
+        <block type="get_text"></block>
+        <block type="this"></block>
+        <block type="to_number"></block>
+        <block type="draft"></block>
       </category>
-      <category name="Scripting">
+      <category name="Animation" colour="red">
+        <block type="animate"></block>
+        <block type="animation_property"></block>
+        <block type="animation_easing"></block>
+      </category>
+      <category name="Database" colour="blue">
+        <block type="airtable_url"></block>
+        <block type="airtable"></block>
+        <block type="airtable_update"></block>
+        <block type="airtable_field"></block>
+        <block type="get_parametr"></block>
+        <block type="get_single_airtable"></block>
+        <block type="get_single_field"></block>
+        <block type="get_value_from_key"></block>
+      </category>
         <category name="Logic" colour="#5C81A6">
           <block type="controls_if"></block>
           <block type="logic_compare">
