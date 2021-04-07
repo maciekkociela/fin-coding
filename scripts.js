@@ -9,7 +9,7 @@ Blockly.Blocks["get_checkbox"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#939819");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -24,7 +24,7 @@ Blockly.Blocks["change_text"] = {
       .appendField("in");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -44,7 +44,7 @@ Blockly.Blocks["element"] = {
       )
       .appendField(new Blockly.FieldTextInput("class-name"), "NAME");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -63,7 +63,7 @@ Blockly.Blocks["range_slider_move"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(60);
+    this.setColour("#939819");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -133,7 +133,7 @@ Blockly.Blocks["submit"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour("#939819");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -171,7 +171,7 @@ Blockly.Blocks["get_parametr"] = {
       .appendField("get parametr")
       .appendField(new Blockly.FieldTextInput("parametr"), "parametr");
     this.setOutput(true, null);
-    this.setColour(90);
+    this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -233,7 +233,7 @@ Blockly.Blocks["css_value"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -427,7 +427,7 @@ Blockly.Blocks["this"] = {
     this.appendDummyInput().appendField("this");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(330);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -473,7 +473,7 @@ Blockly.Blocks["draft"] = {
   init: function () {
     this.appendDummyInput().appendField("draft");
     this.appendStatementInput("draft").setCheck(null);
-    this.setColour(105);
+    this.setColour("#444");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -487,6 +487,58 @@ Blockly.Blocks["get_value_from_key"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["update_list"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("update list");
+    this.appendStatementInput("fields").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["update_list_field"] = {
+  init: function () {
+    this.appendValueInput("field")
+      .setCheck(null)
+      .appendField("update list field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["update_airtable_list"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("airtable list value");
+    this.appendValueInput("update")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("update to");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["tutorial"] = {
+  init: function () {
+    this.appendDummyInput().appendField("tutorial");
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }

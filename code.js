@@ -153,7 +153,41 @@ Blockly.JavaScript["airtable_update"] = function (block) {
     'data: `{"records": [{"id": "`+weblocs_id_key+`","fields": {"ID":"0"' +
     statements_fields +
     "}}]}`};" +
-    "$.ajax(settings).done(function (response) {console.log(response);});";
+    "$.ajax(settings).done(function (response) {});";
+  return code;
+};
+
+Blockly.JavaScript["update_list"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var statements_fields = Blockly.JavaScript.statementToCode(block, "fields");
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "var weblocs_id_key = " +
+    value_name +
+    ";" +
+    "$('[id_key = ' + weblocs_id_key + ']').children('[text=likes]').text(likes);" +
+    "var id_key = $(this).parent().attr( 'id_key' );" +
+    "for (var i = 0; i != data.length; i++) {" +
+    "if (data[i].key == id_key) {\n" +
+    statements_fields +
+    "break;" +
+    "}}";
+  return code;
+};
+
+Blockly.JavaScript["update_list_field"] = function (block) {
+  var value_field = Blockly.JavaScript.valueToCode(
+    block,
+    "field",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = "data[i]." + value_field;
+  " = " + value_field + ";";
   return code;
 };
 
@@ -192,23 +226,56 @@ Blockly.JavaScript["get_data"] = function (block) {
   var statements_do = Blockly.JavaScript.statementToCode(block, "do");
   // TODO: Assemble JavaScript into code variable.
   var code =
-    'var dataTemplate = $("#data-list").html();var data_i = 0;' +
-    '$("#data-list div:eq(0)").hide();' +
+    "var dataTemplate = $(" +
+    value_var +
+    ").html();var data_i = 0;var data = [];var data_fields = [];" +
+    "$(" +
+    value_var +
+    ").children('div:eq(0)').hide();\n" +
     "$.getJSON(" +
     "airtable_url," +
     "function (data_el) {" +
-    "data = [[]]; " +
     "$.each(data_el.records, function (key, val) {" +
+    "data.push({key:val.id});\n" +
     "data_i++;" +
     "var dataTile = dataTemplate;" +
-    "console.log(data_i);" +
     statements_fields +
-    'dataTile = dataTile.replace("[key]", val.id);' +
-    '$("#data-list").append(dataTile);' +
-    '$("#data-list .like-wrap").last().attr("id_key",val.id);' +
+    "$(" +
+    value_var +
+    ").append(dataTile);\n" +
+    "$(" +
+    value_var +
+    ').children("div").last().attr("id_key",val.id);\n' +
     "});" +
     statements_do +
+    "for (var i = 0; i != data.length; i++) { console.log(data[i]);" +
+    "for (var j = 0; j != data_fields.length; j++) { console.log(data_fields[j]); }" +
     "}" +
+    "}" +
+    ");";
+  return code;
+};
+
+Blockly.JavaScript["get_field"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "data[data.length - 1]." +
+    value_name +
+    " = val.fields." +
+    value_name +
+    ";\n" +
+    "data_fields.push('" +
+    value_name +
+    "');\n" +
+    'dataTile = dataTile.replace("[' +
+    value_name +
+    ']", val.fields.' +
+    value_name +
     ");";
   return code;
 };
@@ -241,22 +308,6 @@ Blockly.JavaScript["get_single_field"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   var code = value_field + " = data.fields." + value_field + ";";
-  return code;
-};
-
-Blockly.JavaScript["get_field"] = function (block) {
-  var value_name = Blockly.JavaScript.valueToCode(
-    block,
-    "NAME",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-  // TODO: Assemble JavaScript into code variable.
-  var code =
-    'dataTile = dataTile.replace("[' +
-    value_name +
-    ']", val.fields.' +
-    value_name +
-    ");";
   return code;
 };
 
@@ -462,6 +513,93 @@ Blockly.JavaScript["get_value_from_key"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = "...;\n";
+  var code =
+    "var id_key = $(this).parent().attr( 'id_key' );" +
+    "for (var i = 0; i != data.length; i++) {" +
+    "if (data[i].key == id_key) { \n" +
+    value_value +
+    " = data[i]." +
+    value_value +
+    ";" +
+    value_value +
+    " = parseFloat(" +
+    value_value +
+    ");" +
+    "break;" +
+    "}}";
+  return code;
+};
+
+Blockly.JavaScript["update_airtable_list"] = function (block) {
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_update = Blockly.JavaScript.valueToCode(
+    block,
+    "update",
+    Blockly.JavaScript.ORDER_NONE
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    'var id_key = $(this).parent().attr("id_key");\n' +
+    "for (var i = 0; i != data.length; i++) {\n" +
+    "if (data[i].key == id_key) { \n" +
+    value_value +
+    " = data[i]." +
+    value_value +
+    "; console.log(" +
+    value_value +
+    ");" +
+    value_value +
+    " = parseFloat(" +
+    value_value +
+    ");\n" +
+    "break;\n" +
+    "}\n" +
+    "}\n" +
+    value_value +
+    " = " +
+    value_update +
+    ";\n" +
+    "data[i]." +
+    value_value +
+    " = " +
+    value_value +
+    ";" +
+    'var weblocs_id_key = $(this).parent().attr("id_key");\n' +
+    "var settings = {\n" +
+    "async: true," +
+    "crossDomain: true," +
+    "url: airtable_url,\n" +
+    'method: "PATCH",\n' +
+    'headers: { "content-type": "application/json" },\n' +
+    "processData: false,\n" +
+    "data:\n" +
+    '`{"records": [{"id": "` +\n' +
+    "weblocs_id_key +\n" +
+    '`","fields": {"ID":"0" ,"' +
+    value_value +
+    '":"` +\n' +
+    value_value +
+    " +\n" +
+    '`"}}]}`\n' +
+    "};\n" +
+    "$.ajax(settings).done(function (response) {});" +
+    "console.log(" +
+    value_value +
+    ");" +
+    "$('[id_key = ' + weblocs_id_key + ']').children('[bloc_text=" +
+    value_value +
+    "]').text(" +
+    value_value +
+    ");";
+  return code;
+};
+
+Blockly.JavaScript["tutorial"] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "";
   return code;
 };
