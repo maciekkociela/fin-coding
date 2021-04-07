@@ -64,6 +64,9 @@
       </category>
       </category>
       <category name="Lesson 4">
+      <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/b246ad5c9e7341fb89044c0854c30a56</comment>
+        </block>
         <block type="controls_if"></block>
           <block type="logic_compare">
             <field name="OP">EQ</field>
@@ -71,19 +74,58 @@
       </category>
       
       <category name="Lesson 5">
+      <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/fc7b67d60805467996e31febeef56d8c</comment>
+        </block>
         <block type="add_class"></block>
       </category>
       <category name="Lesson 6">
-        <block type="animate"></block>
-        <block type="animation_property"></block>
-        <block type="math_number">
-            <field name="NUM">0</field>
-          </block>
-        <block type="animation_easing"></block>
+      <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/9945dc87c73e483aa1628a3be50eb524</comment>
+        </block>
+        <block type="animate">
+<field name="queue">TRUE</field>
+<statement name="animate">
+<block type="animation_property">
+<field name="property">opacity</field>
+<field name="after_value"/>
+<value name="NAME">
+<block type="math_number">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="timing">
+<block type="math_number">
+<field name="NUM">300</field>
+</block>
+</value>
+<value name="delay">
+<block type="math_number">
+<field name="NUM">0</field>
+</block>
+</value>
+<value name="function">
+<block type="animation_easing">
+<field name="easing">linear</field>
+</block>
+</value>
+<value name="element">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
       </category>
       </category>
 <category name="Chapter 2">
 <category name="Lesson 1">
+<block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/35916f23d1f3488ab43b91ee5731eef0</comment>
+        </block>
+
       <block type="get_checkbox">
 <value name="value">
 <block type="variables_get">
@@ -108,6 +150,9 @@
 </block>
 </category>
 <category name="Lesson 2">
+<block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/147f5b70a6e040eaaa9014302449acc5</comment>
+        </block>
 <block type="math_arithmetic">
             <field name="OP">ADD</field>
             <value name="A">
@@ -122,17 +167,34 @@
             </value>
           </block>
           </category>
+      <category name="Lesson 3">
       
+      <category name="Tutorial">
+      <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/340555bd97c14b8db5089c44a99cfed1</comment>
+        </block>
+        </category>
       <category
-          name="Lesson 3"
+          name="Functions"
           custom="PROCEDURE"
         ></category>
+        </category>
         <category name="Lesson 4">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/5cbfa6376b86472cad6cb676cf1971ac</comment>
+        </block>
         <block type="logic_boolean">
             <field name="BOOL">TRUE</field>
           </block>
           </category>
           <category name="Lesson 5">
+          <block type="cloneable">
+        <comment pinned="true" h="100" w="160">https://webflow.com/website/weblocs-chapter2</comment>
+        </block>
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/33c5ef50c7584f61934ac2ccecb6b224</comment>
+        </block>
+        
           <block type="range_slider_move"></block>
           </category>
     </category>  
@@ -205,12 +267,7 @@
     
       </category>
       <category name="Forms" colour="#939819">
-      
-      <block type="get_checkbox"></block>
-      <block type="submit"></block>
-      <block type="range_slider_move"></block>
-
-      <block type="get_checkbox">
+            <block type="get_checkbox">
 <value name="value">
 <block type="variables_get">
 <field name="VAR" id="Y6anUI87846NWT9t52UW">input_value</field>
@@ -232,12 +289,56 @@
 </block>
 </statement>
 </block>
+      <block type="get_checkbox"></block>
+      <block type="submit"></block>
+      <block type="range_slider_move"></block>
+
+
       
       </category>
       <category name="Animation" colour="#a55b5a">
-        <block type="animate"></block>
+        <block type="animate">
+<field name="queue">TRUE</field>
+<statement name="animate">
+<block type="animation_property">
+<field name="property">opacity</field>
+<field name="after_value"/>
+<value name="NAME">
+<block type="math_number">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="timing">
+<block type="math_number">
+<field name="NUM">300</field>
+</block>
+</value>
+<value name="delay">
+<block type="math_number">
+<field name="NUM">0</field>
+</block>
+</value>
+<value name="function">
+<block type="animation_easing">
+<field name="easing">linear</field>
+</block>
+</value>
+<value name="element">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
         <block type="animation_property"></block>
-        <block type="animation_easing"></block>
+        
+      </category>
+      
+      <category name="Cookies" colour="%{BKY_TEXTS_HUE}">
+        <block type="get_cookie"></block>
+        <block type="set_cookies"></block>
       </category>
       <category name="Database" colour="#5b67a5">
         <block type="airtable_url"></block>
@@ -256,10 +357,14 @@
         </block>
       </category>
         <category name="Logic" colour="#5C81A6">
-          <block type="controls_if"></block>
-          <block type="logic_compare">
-            <field name="OP">EQ</field>
-          </block>
+          <block type="controls_if">
+<value name="IF0">
+<block type="logic_compare">
+<field name="OP">EQ</field>
+</block>
+</value>
+</block>
+          
           <block type="logic_operation">
             <field name="OP">AND</field>
           </block>
@@ -269,6 +374,9 @@
           </block>
           <block type="logic_null"></block>
           <block type="logic_ternary"></block>
+          <block type="logic_compare">
+            <field name="OP">EQ</field>
+          </block>
         </category>
         <category name="Loops" colour="#5CA65C">
           <block type="controls_repeat_ext">

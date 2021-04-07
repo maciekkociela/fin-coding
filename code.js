@@ -87,7 +87,7 @@ Blockly.JavaScript["range_slider_move"] = function (block) {
     value_name +
     " (name, swiper) { name = '[name=' + name + ']';" +
     " var range = $(name).val(); range = parseFloat(range);" +
-    " var width = $(name).width(); var range_max = $(name).attr('max');" +
+    " var width = $(name).width() - 10; var range_max = $(name).attr('max');" +
     " width = width / range_max; width = width * (range - 1); " +
     " $(swiper).css({ transform: 'translateX(' + width + 'px)' }); }";
   return code;
@@ -601,5 +601,36 @@ Blockly.JavaScript["update_airtable_list"] = function (block) {
 Blockly.JavaScript["tutorial"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
   var code = "";
+  return code;
+};
+
+Blockly.JavaScript["cloneable"] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "";
+  return code;
+};
+
+Blockly.JavaScript["get_cookie"] = function (block) {
+  var text_cookiename = block.getFieldValue("cookieName");
+  // TODO: Assemble JavaScript into code variable.
+  var code = "Cookies.get('" + text_cookiename + "')";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript["set_cookies"] = function (block) {
+  var text_cookiename = block.getFieldValue("cookieName");
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "Cookies.set('" +
+    text_cookiename +
+    "', " +
+    value_name +
+    ", { expires: 365 });\n";
   return code;
 };

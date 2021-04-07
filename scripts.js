@@ -543,3 +543,39 @@ Blockly.Blocks["tutorial"] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks["cloneable"] = {
+  init: function () {
+    this.appendDummyInput().appendField("cloneable");
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_cookie"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("get cookie value")
+      .appendField(new Blockly.FieldTextInput("cookieName"), "cookieName");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_cookies"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("set cookie")
+      .appendField(new Blockly.FieldTextInput("cookieName"), "cookieName")
+      .appendField("value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
