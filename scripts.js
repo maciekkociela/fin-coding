@@ -439,7 +439,7 @@ Blockly.Blocks["to_number"] = {
       .appendField("change into number");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -575,6 +575,30 @@ Blockly.Blocks["set_cookies"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["undefined"] = {
+  init: function () {
+    this.appendDummyInput().appendField("undefined");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_value"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("update value in input");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#939819");
     this.setTooltip("");
     this.setHelpUrl("");
   }

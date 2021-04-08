@@ -198,6 +198,8 @@
           <block type="range_slider_move"></block>
           </category>
     </category>  
+    <category name="Chapter 3">
+    </category>
     </category>
 
       
@@ -289,10 +291,11 @@
 </block>
 </statement>
 </block>
+<block type="set_value"></block>
       <block type="get_checkbox"></block>
       <block type="submit"></block>
       <block type="range_slider_move"></block>
-
+      
 
       
       </category>
@@ -339,6 +342,7 @@
       <category name="Cookies" colour="%{BKY_TEXTS_HUE}">
         <block type="get_cookie"></block>
         <block type="set_cookies"></block>
+        <block type="to_number"></block>
       </category>
       <category name="Database" colour="#5b67a5">
         <block type="airtable_url"></block>
@@ -513,6 +517,8 @@
             </value>
           </block>
           <block type="math_random_float"></block>
+          <block type="undefined">
+          </block>
         </category>
         <category name="Text" colour="#5CA68D">
           <block type="text_charAt">

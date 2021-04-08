@@ -634,3 +634,21 @@ Blockly.JavaScript["set_cookies"] = function (block) {
     ", { expires: 365 });\n";
   return code;
 };
+
+Blockly.JavaScript["undefined"] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "undefined";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript["set_value"] = function (block) {
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = "$('[name=" + value_value + "]').val(" + value_value + ");";
+  return code;
+};
