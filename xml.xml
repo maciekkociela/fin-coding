@@ -199,6 +199,22 @@
           </category>
     </category>  
     <category name="Chapter 3">
+      <category name="Lesson 1">
+        <block type="get_cookie"></block>
+        <block type="set_cookies"></block>
+        <block type="set_cookie_value"></block>
+        <block type="get_cookie_value"></block>
+        <block type="undefined"></block>
+        <block type="set_value"></block>
+        <block type="text">
+            <field name="TEXT"></field>
+          </block>
+          <variables><variable id="Y6anUI87846NWT9t52UW">name_field</variable></variables><block type="variables_set" id="VFVGK%A/C=wbLnSpmv0@" x="354" y="211"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field><value name="VALUE"><block type="get_cookie" id="4X%)iEyM,6xv3WTwxq=X"><field name="cookieName">name</field></block></value><next><block type="controls_if" id="#2Gj$=RV/@*=v)eeCk^1"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare" id="35WHZ.u@oW-LIvvg=dZk"><field name="OP">EQ</field><value name="A"><block type="variables_get" id="gnq;a^D[i=B=lQv4b,1h"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field></block></value><value name="B"><block type="undefined" id="9Xof6ARKS8AaZ_L[T70#"></block></value></block></value><statement name="DO0"><block type="variables_set" id=":aI/K_VX{;UYfV,;sS6u"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field><value name="VALUE"><block type="text" id="MxP}u/0JI=5BzYLdt~N["><field name="TEXT"></field></block></value></block></statement><statement name="ELSE"><block type="set_value" id="JO}yxllOcG+28,i;20Ty"><value name="value"><block type="variables_get" id="jVBwrX5]wRC.:HtBA=O/"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field></block></value></block></statement><next><block type="get_checkbox" id="W4x/?|Ho5?cEb}/Z.hd;"><value name="value"><block type="variables_get" id="fiKe#tS?cNlM4V)l;e^%"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field></block></value><statement name="NAME"><block type="set_cookies" id="d^QcyYqzC^1A7{Pe0k?;"><field name="cookieName">name</field><value name="NAME"><block type="variables_get" id="X_:3WG-kTd/6)+/=z:sj"><field name="VAR" id="Y6anUI87846NWT9t52UW">name_field</field></block></value></block></statement></block></next></block></next></block>
+      </category>
+      <category name="Lesson 2">
+      <block type="to_number"></block>
+      <variables><variable id="Y6anUI87846NWT9t52UW">value</variable></variables><block type="variables_set" id="VFVGK%A/C=wbLnSpmv0@" x="267" y="87"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field><value name="VALUE"><block type="get_cookie" id="4X%)iEyM,6xv3WTwxq=X"><field name="cookieName">cookieNameValue</field></block></value><next><block type="controls_if" id="#2Gj$=RV/@*=v)eeCk^1"><value name="IF0"><block type="logic_compare" id="35WHZ.u@oW-LIvvg=dZk"><field name="OP">EQ</field><value name="A"><block type="variables_get" id="gnq;a^D[i=B=lQv4b,1h"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field></block></value><value name="B"><block type="undefined" id="9Xof6ARKS8AaZ_L[T70#"></block></value></block></value><statement name="DO0"><block type="variables_set" id=":aI/K_VX{;UYfV,;sS6u"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field><value name="VALUE"><block type="math_number" id="Nv0y^(~fTZZ:UTR9wN[|"><field name="NUM">0</field></block></value></block></statement><next><block type="animate" id="Yba=YtNK1@vWGIF?K4Ft"><field name="queue">TRUE</field><statement name="animate"><block type="animation_property" id="0j$B0$ywff}~miG9:Uc$"><field name="property">opacity</field><field name="after_value"></field><value name="NAME"><block type="math_number" id="n_TbO:t9A^.=%;@qX2m("><field name="NUM">1</field></block></value></block></statement><value name="timing"><block type="math_number" id="H{WJ4(QFT^njv#A(a/Zs"><field name="NUM">300</field></block></value><value name="delay"><block type="math_number" id="0kR1B9N@onT%ae5[jS[)"><field name="NUM">0</field></block></value><value name="function"><block type="animation_easing" id="|r)rrG}:Ma_Iw4V)GQ}y"><field name="easing">linear</field></block></value><value name="element"><block type="element" id="RUJp%9jmyrgG*K}=%itv"><field name="element">.</field><field name="NAME">button</field></block></value><next><block type="to_number" id="c#HEF:sQA%4MjTkYte/!"><value name="NAME"><block type="variables_get" id="8]gR[G%{40D6;aftNzT/"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field></block></value><next><block type="change_text" id="?AyvzEkxw/_(D{d/:vZw"><value name="text"><block type="variables_get" id="?u%*LNm0|L5cazM%XV3N"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field></block></value><value name="element"><block type="element" id="0+r1=8N_r=l1L,wB:p15"><field name="element">.</field><field name="NAME">button</field></block></value><next><block type="mouse_event" id="=Bn2MbEwn#wjBM.?Lm(3"><field name="on">click</field><value name="into"><block type="element" id="7%H$TX/QqwnYz8hBMSKZ"><field name="element">.</field><field name="NAME">button</field></block></value><statement name="NAME"><block type="math_change" id="RO[[oq#.u{_aCemtZdpF"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field><value name="DELTA"><shadow type="math_number" id="Xm`S7]x(yT)}4*P=l3qQ"><field name="NUM">1</field></shadow><block type="math_number" id="*JWI4AO#bCR/#v[mH=Dq"><field name="NUM">1</field></block></value><next><block type="change_text" id="kJ_yb!CW1qr(qi{8@hQS"><value name="text"><block type="variables_get" id="e!Q56sn:TN)ztiYT}!P^"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field></block></value><value name="element"><block type="element" id="3+-WNb2^/$V*WfjVykk!"><field name="element">.</field><field name="NAME">button</field></block></value><next><block type="set_cookies" id="d^QcyYqzC^1A7{Pe0k?;"><field name="cookieName">cookieNameValue</field><value name="NAME"><block type="variables_get" id="X_:3WG-kTd/6)+/=z:sj"><field name="VAR" id="Y6anUI87846NWT9t52UW">value</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block>
+      </category>
     </category>
     </category>
 
@@ -292,12 +308,13 @@
 </statement>
 </block>
 <block type="set_value"></block>
-      <block type="get_checkbox"></block>
-      <block type="submit"></block>
-      <block type="range_slider_move"></block>
-      
-
-      
+        <block type="get_checkbox"></block>
+        <block type="submit"></block>
+        <block type="range_slider_move"></block>
+        <block type="input_function"></block>
+        <block type="input_trigger"></block>
+        <block type="input_on_change"></block>
+        <block type="set_input_on_change"></block>
       </category>
       <category name="Animation" colour="#a55b5a">
         <block type="animate">
@@ -343,6 +360,7 @@
         <block type="get_cookie"></block>
         <block type="set_cookies"></block>
         <block type="to_number"></block>
+        <block type="undefined"></block>
       </category>
       <category name="Database" colour="#5b67a5">
         <block type="airtable_url"></block>
@@ -517,8 +535,7 @@
             </value>
           </block>
           <block type="math_random_float"></block>
-          <block type="undefined">
-          </block>
+          
         </category>
         <category name="Text" colour="#5CA68D">
           <block type="text_charAt">

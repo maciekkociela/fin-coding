@@ -584,7 +584,7 @@ Blockly.Blocks["undefined"] = {
   init: function () {
     this.appendDummyInput().appendField("undefined");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -599,6 +599,72 @@ Blockly.Blocks["set_value"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#939819");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_cookie_value"] = {
+  init: function () {
+    this.appendValueInput("cookie").setCheck(null).appendField("set cookie");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_cookie_value"] = {
+  init: function () {
+    this.appendValueInput("cookie").setCheck(null).appendField("get cookie");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["input_function"] = {
+  init: function () {
+    this.appendDummyInput().appendField("inputs on change function");
+    this.appendStatementInput("NAME").setCheck(null);
+    this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["input_trigger"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("input on change trigger");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["input_on_change"] = {
+  init: function () {
+    this.appendDummyInput().appendField("input");
+    this.setOutput(true, null);
+    this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_input_on_change"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("set input");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
     this.setTooltip("");
     this.setHelpUrl("");
   }
