@@ -301,11 +301,11 @@ Blockly.JavaScript["get_single_airtable"] = function (block) {
   var code =
     "var weblocs_id_key = " +
     value_id +
-    ";$.getJSON(" +
-    '"https://api.airtable.com/v0/"+airtable_base+"/"+airtable_table+"/"+weblocs_id_key+"?api_key="+airtable_key+",' +
-    "function (data) {" +
+    ";\n$.getJSON(" +
+    '"https://api.airtable.com/v0/"+airtable_base+"/"+airtable_table+"/"+weblocs_id_key+"?api_key="+airtable_key,' +
+    "\nfunction (data) {\n" +
     statements_action +
-    "}" +
+    "\n}\n" +
     ");\n";
   return code;
 };
@@ -696,6 +696,9 @@ Blockly.JavaScript["set_value"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   var code =
+    "if(typeof " +
+    value_value +
+    " !== 'undefined') {\n" +
     "var value_string = '" +
     value_value +
     "';\n" +
@@ -711,7 +714,8 @@ Blockly.JavaScript["set_value"] = function (block) {
     value_value +
     "); if ($('[name='+value_string+']').is(':checkbox')) {  if(" +
     value_value +
-    " == 'true') { $('[name='+value_string+']').siblings('.w-checkbox-input').addClass('w--redirected-checked'); }}}";
+    " == 'true') { $('[name='+value_string+']').siblings('.w-checkbox-input').addClass('w--redirected-checked'); }}}" +
+    "}";
   return code;
 };
 
@@ -721,6 +725,7 @@ Blockly.JavaScript["input_function"] = function (block) {
   var code =
     "function input_function (input,input_name) {\n" +
     statements_name +
+    "return input;" +
     "\n} ;\n";
   return code;
 };
@@ -752,4 +757,16 @@ Blockly.JavaScript["set_input_on_change"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
   var code = "input = " + value_name + ";\n";
   return code;
+};
+
+Blockly.JavaScript["get_input_value"] = function (block) {
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = "";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };

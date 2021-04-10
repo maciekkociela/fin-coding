@@ -628,7 +628,7 @@ Blockly.Blocks["get_cookie_value"] = {
 
 Blockly.Blocks["input_function"] = {
   init: function () {
-    this.appendDummyInput().appendField("inputs on change function");
+    this.appendDummyInput().appendField("input function");
     this.appendStatementInput("NAME").setCheck(null);
     this.setColour(45);
     this.setTooltip("");
@@ -640,7 +640,7 @@ Blockly.Blocks["input_trigger"] = {
   init: function () {
     this.appendValueInput("NAME")
       .setCheck(null)
-      .appendField("input on change trigger");
+      .appendField("input function trigger");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
@@ -664,6 +664,18 @@ Blockly.Blocks["set_input_on_change"] = {
     this.appendValueInput("NAME").setCheck(null).appendField("set input");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_input_value"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .appendField("get input value");
+    this.setOutput(true, null);
     this.setColour(45);
     this.setTooltip("");
     this.setHelpUrl("");
