@@ -102,7 +102,7 @@ Blockly.Blocks["add_class"] = {
 
 Blockly.Blocks["airtable"] = {
   init: function () {
-    this.appendDummyInput().appendField("airtable");
+    this.appendDummyInput().appendField("airtable create row");
     this.appendStatementInput("fields").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -365,8 +365,26 @@ Blockly.Blocks["animation_property"] = {
 
 Blockly.Blocks["airtable_update"] = {
   init: function () {
-    this.appendValueInput("NAME").setCheck(null).appendField("airtable update");
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("airtable update row");
     this.appendStatementInput("fields").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["airtable_delete_row"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("airtable delete row");
+    this.appendDummyInput().appendField("do after delete");
+    this.appendStatementInput("function").setCheck(null);
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -381,6 +399,8 @@ Blockly.Blocks["get_single_airtable"] = {
       .setCheck(null)
       .appendField("get single data from");
     this.appendStatementInput("action").setCheck(null);
+    this.appendDummyInput().appendField("do when data is loaded");
+    this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -449,15 +469,15 @@ Blockly.Blocks["airtable_url"] = {
   init: function () {
     this.appendDummyInput().appendField("airtable");
     this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
+      .setAlign(Blockly.ALIGN_LEFT)
       .appendField("base")
       .appendField(new Blockly.FieldTextInput("base"), "base");
     this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
+      .setAlign(Blockly.ALIGN_LEFT)
       .appendField("table")
       .appendField(new Blockly.FieldTextInput("table"), "table");
     this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
+      .setAlign(Blockly.ALIGN_LEFT)
       .appendField("key")
       .appendField(new Blockly.FieldTextInput("key"), "key");
     this.setInputsInline(false);
@@ -677,6 +697,43 @@ Blockly.Blocks["get_input_value"] = {
       .appendField("get input value");
     this.setOutput(true, null);
     this.setColour(45);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["duplicate_code_using_list"] = {
+  init: function () {
+    this.appendDummyInput().appendField("duplicate using list of inputs");
+    this.appendStatementInput("code").setCheck(null);
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["list_of_inputs"] = {
+  init: function () {
+    this.appendValueInput("inputs")
+      .setCheck(null)
+      .appendField("list of inputs");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["reload_page"] = {
+  init: function () {
+    this.appendDummyInput().appendField("reload page");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
     this.setTooltip("");
     this.setHelpUrl("");
   }

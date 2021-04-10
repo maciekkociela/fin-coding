@@ -198,7 +198,26 @@
           <block type="range_slider_move"></block>
           </category>
     </category>  
-    <category name="Chapter 3 (Local Storage)">
+    <category name="Chapter 3 (Database)">
+      <category name="Lesson 1">
+        <block type="airtable_url"></block>
+        <block type="get_single_airtable"></block>
+        <block type="get_single_field"></block>
+        <block type="text">
+            <field name="TEXT"></field>
+        </block>
+      </category>
+      <category name="Lesson 2">
+        <block type="get_data"></block>
+        <block type="get_field"></block>
+      </category>
+      <category name="Lesson 4">
+        <block type="duplicate_code_using_list"></block>
+        <block type="list_of_inputs"></block>
+        <block type="airtable_delete_row"></block>
+      </category>
+    </category>
+    <category name="Chapter 4 (Local Storage)">
       <category name="Lesson 1">
         <block type="get_cookie"></block>
         <block type="set_cookies"></block>
@@ -206,6 +225,7 @@
         <block type="get_cookie_value"></block>
         <block type="undefined"></block>
         <block type="set_value"></block>
+        <block type="get_input_value"></block>
         <block type="text">
             <field name="TEXT"></field>
           </block>
@@ -222,11 +242,7 @@
         <block type="set_input_on_change"></block>
       </category>
     </category>
-    <category name="Chapter 4 (Database)">
-      <category name="Lesson 1">
-        <block type="get_input_value"></block>
-      </category>
-    </category>
+    
     </category>
 
       
@@ -293,6 +309,7 @@
         <block type="this"></block>
         <!-- <block type="to_number"></block> -->
         <block type="draft"></block>
+        <block type="reload_page"></block>
     
       </category>
       <category name="Forms" colour="#939819">

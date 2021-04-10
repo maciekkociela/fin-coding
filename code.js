@@ -26,11 +26,11 @@ Blockly.JavaScript["get_checkbox"] = function (block) {
     statements_name +
     "});" +
     '$("label.w-radio").on("click", function () {' +
+    "if ($(this).children('[data-name=" +
     value_value +
-    " = $('[name='+value_string+']', this).val();" +
-    "console.log(" +
+    "]').length != 0) {" +
     value_value +
-    ");" +
+    " = $('[name='+value_string+']', this).val();\n}\n" +
     "});";
   return code;
 };
@@ -141,7 +141,7 @@ Blockly.JavaScript["airtable"] = function (block) {
     'data: `{"records": [{"fields": {"ID":"0"' +
     statements_fields +
     "}}]}`};" +
-    "$.ajax(settings).done(function (response) {console.log(response);});";
+    "$.ajax(settings).done(function (response) {});";
   return code;
 };
 
@@ -164,6 +164,31 @@ Blockly.JavaScript["airtable_update"] = function (block) {
     statements_fields +
     "}}]}`};" +
     "$.ajax(settings).done(function (response) {});";
+  return code;
+};
+
+Blockly.JavaScript["airtable_delete_row"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_NONE
+  );
+  var statements_function = Blockly.JavaScript.statementToCode(
+    block,
+    "function"
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "var weblocs_id_key = " +
+    value_name +
+    "; var settings = {async: true,crossDomain: true," +
+    'url:"https://api.airtable.com/v0/"+airtable_base+"/"+airtable_table+"/"+weblocs_id_key+"?api_key="+airtable_key,' +
+    'method: "DELETE", headers: { "content-type": "application/json"' +
+    "},processData: false," +
+    'data: `{"id": "`+weblocs_id_key+`","deleted": true}`};' +
+    "$.ajax(settings).done(function (response) {\n" +
+    statements_function +
+    "\n});";
   return code;
 };
 
@@ -258,8 +283,8 @@ Blockly.JavaScript["get_data"] = function (block) {
     ').children("div").last().attr("id_key",val.id);\n' +
     "});" +
     statements_do +
-    "for (var i = 0; i != data.length; i++) { console.log(data[i]);" +
-    "for (var j = 0; j != data_fields.length; j++) { console.log(data_fields[j]); }" +
+    "for (var i = 0; i != data.length; i++) {" +
+    "for (var j = 0; j != data_fields.length; j++) {  }" +
     "}" +
     "}" +
     ");";
@@ -286,7 +311,8 @@ Blockly.JavaScript["get_field"] = function (block) {
     value_name +
     ']", val.fields.' +
     value_name +
-    ");";
+    ");" +
+    'dataTile = dataTile.replace("[id]", val.id);';
   return code;
 };
 
@@ -297,6 +323,7 @@ Blockly.JavaScript["get_single_airtable"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   var statements_action = Blockly.JavaScript.statementToCode(block, "action");
+  var statements_do = Blockly.JavaScript.statementToCode(block, "do");
   // TODO: Assemble JavaScript into code variable.
   var code =
     "var weblocs_id_key = " +
@@ -305,7 +332,9 @@ Blockly.JavaScript["get_single_airtable"] = function (block) {
     '"https://api.airtable.com/v0/"+airtable_base+"/"+airtable_table+"/"+weblocs_id_key+"?api_key="+airtable_key,' +
     "\nfunction (data) {\n" +
     statements_action +
-    "\n}\n" +
+    "\n " +
+    statements_do +
+    "\n }\n" +
     ");\n";
   return code;
 };
@@ -559,9 +588,7 @@ Blockly.JavaScript["update_airtable_list"] = function (block) {
     value_value +
     " = data[i]." +
     value_value +
-    "; console.log(" +
-    value_value +
-    ");" +
+    ";" +
     value_value +
     " = parseFloat(" +
     value_value +
@@ -597,9 +624,6 @@ Blockly.JavaScript["update_airtable_list"] = function (block) {
     '`"}}]}`\n' +
     "};\n" +
     "$.ajax(settings).done(function (response) {});" +
-    "console.log(" +
-    value_value +
-    ");" +
     "$('[id_key = ' + weblocs_id_key + ']').children('[bloc_text=" +
     value_value +
     "]').text(" +
@@ -769,4 +793,51 @@ Blockly.JavaScript["get_input_value"] = function (block) {
   var code = "";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+var list_of_vars = 0;
+
+Blockly.JavaScript["duplicate_code_using_list"] = function (block) {
+  var statements_code = Blockly.JavaScript.statementToCode(block, "code");
+  // TODO: Assemble JavaScript into code variable.
+  var code = "";
+  for (var i = 0; i < list_of_vars.length; i += 1) {
+    //statements_code = statements_code.replaceAll("input", list_of_vars[i]);
+    code += statements_code.replaceAll("input_var", list_of_vars[i]);
+    code += "\n";
+  }
+  return code;
+};
+
+String.prototype.replaceAll = function (str1, str2, ignore) {
+  return this.replace(
+    new RegExp(
+      str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"),
+      ignore ? "gi" : "g"
+    ),
+    typeof str2 == "string" ? str2.replace(/\$/g, "$$$$") : str2
+  );
+};
+
+Blockly.JavaScript["list_of_inputs"] = function (block) {
+  var value_inputs = Blockly.JavaScript.valueToCode(
+    block,
+    "inputs",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  value_inputs.toString();
+  // TODO: Assemble JavaScript into code variable.
+  value_inputs = value_inputs.replaceAll("[", '["');
+  value_inputs = value_inputs.replaceAll("]", '"]');
+  value_inputs = value_inputs.replaceAll(", ", '", "');
+  list_of_vars = JSON.parse(value_inputs);
+
+  var code = "//duplication list\n";
+  return code;
+};
+
+Blockly.JavaScript["reload_page"] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "window.location = window.location.href.split('?')[0];\n";
+  return code;
 };
