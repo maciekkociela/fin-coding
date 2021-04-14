@@ -847,3 +847,91 @@ Blockly.Blocks["get_releted_field"] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks["get_attr"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("get attribute")
+      .appendField(new Blockly.FieldTextInput("attribute"), "attribute")
+      .appendField("from");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["redirect_to"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("redirect to")
+      .appendField(new Blockly.FieldTextInput("page"), "page");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["do_for_every_element_in_table"] = {
+  init: function () {
+    this.appendValueInput("table")
+      .setCheck(null)
+      .appendField("do for every row in table");
+    this.appendStatementInput("do").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_script"] = {
+  init: function () {
+    this.appendValueInput("script").setCheck(null).appendField("get script");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_value_from_row"] = {
+  init: function () {
+    this.appendValueInput("value")
+      .setCheck(null)
+      .appendField("get value from row");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_id_from_row"] = {
+  init: function () {
+    this.appendDummyInput().appendField("get id from row");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["add_user_field"] = {
+  init: function () {
+    this.appendValueInput("user")
+      .setCheck(null)
+      .appendField("in row add user id");
+    this.appendValueInput("field").setCheck(null).appendField("to field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};

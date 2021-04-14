@@ -273,7 +273,7 @@ Blockly.JavaScript["get_data"] = function (block) {
     value_var +
     ").children('div:eq(0)').hide();\n" +
     "$.getJSON(" +
-    "airtable_url," +
+    "'https://api.airtable.com/v0/'+airtable_base+'/'+airtable_table+'?api_key='+airtable_key ," +
     "function (data_el) {" +
     "$.each(data_el.records, function (key, val) {" +
     "data.push({key:val.id});\n" +
@@ -305,6 +305,10 @@ Blockly.JavaScript["get_field"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
   var code =
     "data[data.length - 1]." +
+    value_name +
+    " = val.fields." +
+    value_name +
+    ";\n" +
     value_name +
     " = val.fields." +
     value_name +
@@ -898,7 +902,7 @@ Blockly.JavaScript["get_releted_field"] = function (block) {
 Blockly.JavaScript["change_table"] = function (block) {
   var text_table = block.getFieldValue("table");
   // TODO: Assemble JavaScript into code variable.
-  var code = "";
+  var code = `airtable_table = '${text_table}';\n`;
   return code;
 };
 
@@ -978,5 +982,90 @@ Blockly.JavaScript["set_text"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   var code = `$(${value_element}).text(${value_text});\n`;
+  return code;
+};
+
+Blockly.JavaScript["get_attr"] = function (block) {
+  var text_attribute = block.getFieldValue("attribute");
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_NONE
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = `$(${value_name}).attr('${text_attribute}')`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript["redirect_to"] = function (block) {
+  var text_page = block.getFieldValue("page");
+  // TODO: Assemble JavaScript into code variable.
+  var code = `window.location.replace("${text_page}");\n`;
+  return code;
+};
+
+Blockly.JavaScript["do_for_every_element_in_table"] = function (block) {
+  var value_table = Blockly.JavaScript.valueToCode(
+    block,
+    "table",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var statements_do = Blockly.JavaScript.statementToCode(block, "do");
+  // TODO: Assemble JavaScript into code variable.
+  var code = `$.getJSON(
+    'https://api.airtable.com/v0/'+airtable_base+'/'+${value_table}+'?api_key='+airtable_key,
+    function (data) {
+      $.each(data.records, function (key, val) {
+        ${statements_do}
+      });
+    }
+  );`;
+  return code;
+};
+
+Blockly.JavaScript["get_script"] = function (block) {
+  var value_script = Blockly.JavaScript.valueToCode(
+    block,
+    "script",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = `$.getScript(${value_script});\n`;
+  return code;
+};
+
+Blockly.JavaScript["get_value_from_row"] = function (block) {
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = `val.fields.${value_value}`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["get_id_from_row"] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "val.id";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript["add_user_field"] = function (block) {
+  var value_user = Blockly.JavaScript.valueToCode(
+    block,
+    "user",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_field = Blockly.JavaScript.valueToCode(
+    block,
+    "field",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = '"' + value_field + '":["`+' + value_user + '+`"],';
   return code;
 };

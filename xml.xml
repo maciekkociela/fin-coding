@@ -327,7 +327,13 @@
         <block type="this"></block>
         <!-- <block type="to_number"></block> -->
         <block type="reload_page"></block>
+        <block type="redirect_to"></block>
         <block type="browser_language"></block>
+        <block type="get_attr"></block>
+        <block type="get_script"></block>
+        
+        
+        
         <block type="draft"></block>
         
       
@@ -427,6 +433,14 @@
         <block type="get_releted_field"></block>
         
         <block type="change_table"></block>
+
+        <block type="do_for_every_element_in_table"></block>
+        <block type="get_value_from_row"></block>
+        <block type="get_id_from_row"></block>
+        <block type="add_user_field"></block>
+        
+        
+        
 
         <!-- <block type="get_key"></block>
         <block type="get_text"></block> -->
