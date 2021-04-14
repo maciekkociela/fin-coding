@@ -3,7 +3,7 @@ Blockly.Blocks["get_checkbox"] = {
     this.appendValueInput("value")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("input");
+      .appendField("input on change");
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT);
     this.appendStatementInput("NAME").setCheck(null).appendField("do");
     this.setInputsInline(true);
@@ -626,7 +626,7 @@ Blockly.Blocks["set_value"] = {
 
 Blockly.Blocks["set_cookie_value"] = {
   init: function () {
-    this.appendValueInput("cookie").setCheck(null).appendField("set cookie");
+    this.appendValueInput("cookie").setCheck(null).appendField("set local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
@@ -637,7 +637,7 @@ Blockly.Blocks["set_cookie_value"] = {
 
 Blockly.Blocks["get_cookie_value"] = {
   init: function () {
-    this.appendValueInput("cookie").setCheck(null).appendField("get cookie");
+    this.appendValueInput("cookie").setCheck(null).appendField("get local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
@@ -734,6 +734,115 @@ Blockly.Blocks["reload_page"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["create_list_related"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("create airtable list");
+    this.appendValueInput("id")
+      .setCheck(null)
+      .appendField("related with")
+      .appendField(new Blockly.FieldTextInput("Table"), "table")
+      .appendField("item");
+    this.appendStatementInput("fields").setCheck(null);
+    this.appendDummyInput().appendField("do when loaded");
+    this.appendStatementInput("do").setCheck(null);
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["change_table"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("change table")
+      .appendField(new Blockly.FieldTextInput("Table"), "table");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["browser_language"] = {
+  init: function () {
+    this.appendDummyInput().appendField("browser language");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["in_list_get"] = {
+  init: function () {
+    this.appendValueInput("list").setCheck(null).appendField("in list");
+    this.appendValueInput("value1").setCheck(null).appendField("get");
+    this.appendValueInput("value2").setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["do_for_each"] = {
+  init: function () {
+    this.appendValueInput("element").setCheck(null).appendField("do for each");
+    this.appendStatementInput("do").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["change_in_text"] = {
+  init: function () {
+    this.appendValueInput("element").setCheck(null).appendField("in text");
+    this.appendValueInput("change").setCheck(null).appendField("change");
+    this.appendValueInput("into").setCheck(null).appendField("into");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["set_text"] = {
+  init: function () {
+    this.appendValueInput("element").setCheck(null).appendField("in");
+    this.appendValueInput("text").setCheck(null).appendField("set text");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_releted_field"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("get releted field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
   }
