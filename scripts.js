@@ -100,10 +100,40 @@ Blockly.Blocks["add_class"] = {
   }
 };
 
+// Blockly.Blocks["airtable"] = {
+//   init: function () {
+//     this.appendDummyInput().appendField("airtable create row");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
+// Blockly.Blocks["airtable"] = {
+//   init: function () {
+//     this.appendValueInput("table")
+//       .setCheck(null)
+//       .appendField("CREATE record in table");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
 Blockly.Blocks["airtable"] = {
   init: function () {
-    this.appendDummyInput().appendField("airtable create row");
+    this.appendValueInput("table")
+      .setCheck(null)
+      .appendField("CREATE record in table");
     this.appendStatementInput("fields").setCheck(null);
+    this.appendDummyInput().appendField("do after creating record");
+    this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -139,13 +169,34 @@ Blockly.Blocks["submit"] = {
   }
 };
 
+// Blockly.Blocks["get_data"] = {
+//   init: function () {
+//     this.appendValueInput("var")
+//       .setCheck(null)
+//       .appendField("create airtable list");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.appendStatementInput("do").setCheck(null).appendField("do");
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
 Blockly.Blocks["get_data"] = {
   init: function () {
     this.appendValueInput("var")
       .setCheck(null)
-      .appendField("create airtable list");
+      .appendField("BUILD collection in");
+    this.appendValueInput("table")
+      .setCheck(null)
+      .appendField("using items from table");
     this.appendStatementInput("fields").setCheck(null);
-    this.appendStatementInput("do").setCheck(null).appendField("do");
+    this.appendDummyInput().appendField("do in every element");
+    this.appendStatementInput("do_in_element").setCheck(null);
+    this.appendDummyInput().appendField("do when loaded");
+    this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -156,7 +207,9 @@ Blockly.Blocks["get_data"] = {
 
 Blockly.Blocks["get_field"] = {
   init: function () {
-    this.appendValueInput("NAME").setCheck(null).appendField("get field");
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField("collection field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -363,12 +416,30 @@ Blockly.Blocks["animation_property"] = {
   }
 };
 
+// Blockly.Blocks["airtable_update"] = {
+//   init: function () {
+//     this.appendValueInput("NAME")
+//       .setCheck(null)
+//       .appendField("airtable update row");
+//     this.appendValueInput("table").setCheck(null).appendField("in table");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
 Blockly.Blocks["airtable_update"] = {
   init: function () {
     this.appendValueInput("NAME")
       .setCheck(null)
-      .appendField("airtable update row");
+      .appendField("UPDATE record with [ID]");
+    this.appendValueInput("table").setCheck(null).appendField("in table");
     this.appendStatementInput("fields").setCheck(null);
+    this.appendDummyInput().appendField("do after record update");
+    this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -379,9 +450,11 @@ Blockly.Blocks["airtable_update"] = {
 
 Blockly.Blocks["airtable_delete_row"] = {
   init: function () {
-    this.appendValueInput("NAME")
+    this.appendValueInput("NAME").setCheck(null).appendField("DELETE record");
+    this.appendValueInput("table")
       .setCheck(null)
-      .appendField("airtable delete row");
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("in table");
     this.appendDummyInput().appendField("do after delete");
     this.appendStatementInput("function").setCheck(null);
     this.setInputsInline(false);
@@ -397,9 +470,14 @@ Blockly.Blocks["get_single_airtable"] = {
   init: function () {
     this.appendValueInput("id")
       .setCheck(null)
-      .appendField("get single data from");
-    this.appendStatementInput("action").setCheck(null);
-    this.appendDummyInput().appendField("do when data is loaded");
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("READ data from record [ID]");
+    this.appendValueInput("table")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("in table");
+    //this.appendStatementInput("action").setCheck(null);
+    //this.appendDummyInput().appendField("do after load");
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -467,15 +545,11 @@ Blockly.Blocks["to_number"] = {
 
 Blockly.Blocks["airtable_url"] = {
   init: function () {
-    this.appendDummyInput().appendField("airtable");
+    this.appendDummyInput().appendField("CONNECT airtable");
     this.appendDummyInput()
       .setAlign(Blockly.ALIGN_LEFT)
       .appendField("base")
       .appendField(new Blockly.FieldTextInput("base"), "base");
-    this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_LEFT)
-      .appendField("table")
-      .appendField(new Blockly.FieldTextInput("table"), "table");
     this.appendDummyInput()
       .setAlign(Blockly.ALIGN_LEFT)
       .appendField("key")
@@ -704,7 +778,19 @@ Blockly.Blocks["get_input_value"] = {
 
 Blockly.Blocks["duplicate_code_using_list"] = {
   init: function () {
-    this.appendDummyInput().appendField("duplicate using list of inputs");
+    this.appendDummyInput()
+      .appendField("duplicate using list of inputs")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["1", "1"],
+          ["2", "2"],
+          ["3", "3"],
+          ["4", "4"],
+          ["5", "5"]
+        ]),
+        "NAME"
+      );
+
     this.appendStatementInput("code").setCheck(null);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
@@ -715,14 +801,38 @@ Blockly.Blocks["duplicate_code_using_list"] = {
   }
 };
 
+// Blockly.Blocks["list_of_inputs"] = {
+//   init: function () {
+//     this.appendValueInput("inputs")
+//       .setCheck(null)
+//       .appendField("list of inputs");
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(20);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
 Blockly.Blocks["list_of_inputs"] = {
   init: function () {
     this.appendValueInput("inputs")
       .setCheck(null)
-      .appendField("list of inputs");
+      .appendField("list of inputs")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["1", "1"],
+          ["2", "2"],
+          ["3", "3"],
+          ["4", "4"],
+          ["5", "5"]
+        ]),
+        "NAME"
+      );
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(20);
+    this.setColour(30);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -739,15 +849,45 @@ Blockly.Blocks["reload_page"] = {
   }
 };
 
+// Blockly.Blocks["create_list_related"] = {
+//   init: function () {
+//     this.appendValueInput("NAME")
+//       .setCheck(null)
+//       .appendField("create airtable list");
+//     this.appendValueInput("id")
+//       .setCheck(null)
+//       .appendField("related with")
+//       .appendField(new Blockly.FieldTextInput("Table"), "table")
+//       .appendField("item");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.appendDummyInput().appendField("do when loaded");
+//     this.appendStatementInput("do").setCheck(null);
+//     this.setInputsInline(false);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
 Blockly.Blocks["create_list_related"] = {
   init: function () {
     this.appendValueInput("NAME")
       .setCheck(null)
-      .appendField("create airtable list");
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("BUILD collection in");
+    this.appendValueInput("table")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("using items from table");
+    this.appendValueInput("releted")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("releted with table");
     this.appendValueInput("id")
       .setCheck(null)
-      .appendField("related with")
-      .appendField(new Blockly.FieldTextInput("Table"), "table")
+      .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("item");
     this.appendStatementInput("fields").setCheck(null);
     this.appendDummyInput().appendField("do when loaded");
@@ -879,7 +1019,7 @@ Blockly.Blocks["do_for_every_element_in_table"] = {
   init: function () {
     this.appendValueInput("table")
       .setCheck(null)
-      .appendField("do for every row in table");
+      .appendField("READ data from every record in table");
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -902,9 +1042,7 @@ Blockly.Blocks["get_script"] = {
 
 Blockly.Blocks["get_value_from_row"] = {
   init: function () {
-    this.appendValueInput("value")
-      .setCheck(null)
-      .appendField("get value from row");
+    this.appendValueInput("value").setCheck(null).appendField("READ record");
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip("");
@@ -914,7 +1052,7 @@ Blockly.Blocks["get_value_from_row"] = {
 
 Blockly.Blocks["get_id_from_row"] = {
   init: function () {
-    this.appendDummyInput().appendField("get id from row");
+    this.appendDummyInput().appendField("READ [ID]");
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip("");
@@ -924,10 +1062,162 @@ Blockly.Blocks["get_id_from_row"] = {
 
 Blockly.Blocks["add_user_field"] = {
   init: function () {
+    this.appendValueInput("field").setCheck(null).appendField("link field");
     this.appendValueInput("user")
       .setCheck(null)
-      .appendField("in row add user id");
-    this.appendValueInput("field").setCheck(null).appendField("to field");
+      .appendField("connected with [ID]");
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["create_list_related_lookup"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("BUILD collection in");
+    this.appendValueInput("table")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("using records from table");
+    this.appendValueInput("related")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("related by field");
+    this.appendValueInput("id")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("and row with id");
+    this.appendValueInput("filter")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("filter");
+    this.appendStatementInput("fields").setCheck(null);
+    this.appendDummyInput().appendField("do in every element");
+    this.appendStatementInput("do").setCheck(null);
+    this.appendDummyInput().appendField("do after data load");
+    this.appendStatementInput("doafter").setCheck(null);
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["related_field_element"] = {
+  init: function () {
+    this.appendValueInput("field")
+      .setCheck(null)
+      .appendField("collection related field");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["console_log"] = {
+  init: function () {
+    this.appendValueInput("value").setCheck(null).appendField("console log");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["element_from_variable"] = {
+  init: function () {
+    this.appendValueInput("name")
+      .setCheck(null)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["class", "."],
+          ["id", "#"],
+          ["tag", ""],
+          ["bloc", "bloc"]
+        ]),
+        "element"
+      );
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["read_related_record"] = {
+  init: function () {
+    this.appendValueInput("record")
+      .setCheck(null)
+      .appendField("READ related record");
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["count_elements"] = {
+  init: function () {
+    this.appendValueInput("elements")
+      .setCheck(null)
+      .appendField("count elements");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["element_number"] = {
+  init: function () {
+    this.appendValueInput("number").setCheck(null);
+    this.appendValueInput("element").setCheck(null).appendField("#");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["read_change_id"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      "READ change [ID] into item id in all links"
+    );
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["redirect_to_url"] = {
+  init: function () {
+    this.appendValueInput("url").setCheck(null).appendField("redirect to");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["new_block"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null).appendField("new block");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);

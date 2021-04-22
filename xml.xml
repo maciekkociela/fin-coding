@@ -5,7 +5,7 @@
     >
     <category name="Academy">
     <category name="Chapter 1 (Logic)">
-      <category name="Lesson 1">
+      <category name="Lesson 1 (Set CSS)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/0e848b4fce2f4638b2dd6dcdfb5cb65a</comment>
         </block>
@@ -40,7 +40,7 @@
 </statement>
 </block>
       </category>
-      <category name="Lesson 2">
+      <category name="Lesson 2 (Set Text)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/fad0e177aaab4ab7961dfdee0d4f0033</comment>
         </block>
@@ -51,7 +51,7 @@
           
           
       </category>
-      <category name="Lesson 3">
+      <category name="Lesson 3 (Variables)">
       <category name="Blocs">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/7309d9eac90c46f594895aa38a77bbaa</comment>
@@ -63,7 +63,7 @@
       <category name="Variables" custom="VARIABLE">
       </category>
       </category>
-      <category name="Lesson 4">
+      <category name="Lesson 4 (If Statement)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/b246ad5c9e7341fb89044c0854c30a56</comment>
         </block>
@@ -73,13 +73,13 @@
           </block>
       </category>
       
-      <category name="Lesson 5">
+      <category name="Lesson 5 (Add class)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/fc7b67d60805467996e31febeef56d8c</comment>
         </block>
         <block type="add_class"></block>
       </category>
-      <category name="Lesson 6">
+      <category name="Lesson 6 (Animations)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/9945dc87c73e483aa1628a3be50eb524</comment>
         </block>
@@ -121,7 +121,7 @@
       </category>
       </category>
 <category name="Chapter 2 (Forms)">
-<category name="Lesson 1">
+<category name="Lesson 1 (Input)">
 <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/35916f23d1f3488ab43b91ee5731eef0</comment>
         </block>
@@ -149,7 +149,7 @@
 </statement>
 </block>
 </category>
-<category name="Lesson 2">
+<category name="Lesson 2 (Math)">
 <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/147f5b70a6e040eaaa9014302449acc5</comment>
         </block>
@@ -167,7 +167,7 @@
             </value>
           </block>
           </category>
-      <category name="Lesson 3">
+      <category name="Lesson 3 (Functions)">
       
       <category name="Tutorial">
       <block type="tutorial">
@@ -179,7 +179,7 @@
           custom="PROCEDURE"
         ></category>
         </category>
-        <category name="Lesson 4">
+        <category name="Lesson 4 (Checkbox)">
         <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/5cbfa6376b86472cad6cb676cf1971ac</comment>
         </block>
@@ -187,7 +187,7 @@
             <field name="BOOL">TRUE</field>
           </block>
           </category>
-          <category name="Lesson 5">
+          <category name="Lesson 5 (Range)">
           <block type="cloneable">
         <comment pinned="true" h="100" w="160">https://webflow.com/website/weblocs-chapter2</comment>
         </block>
@@ -199,7 +199,7 @@
           </category>
     </category>  
     <category name="Chapter 3 (Local Storage)">
-        <category name="Lesson 1">
+        <category name="Lesson 1 (Set/Get Local)">
         <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/41a3989e754f4037a2ba18ede80eea76</comment>
         </block>
@@ -208,7 +208,7 @@
           <block type="set_value"></block>
           <block type="get_checkbox"></block>
         </category>
-        <category name="Lesson 2">
+        <category name="Lesson 2 (Dupliactions)">
         <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/f4390425481246f699f7ecc8bf2b688c</comment>
         </block>
@@ -218,7 +218,7 @@
             <mutation items="3"></mutation>
           </block>
       </category>
-      <category name="Lesson 3">
+      <category name="Lesson 3 (Change into number)">
       <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/04932c0fc78c49569a19cb547aae8cfd</comment>
         </block>
@@ -228,43 +228,104 @@
           <block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="B"><block type="undefined"></block></value></block></value></block>
           <block type="to_number"></block>
           </category>
-          <category  name="Lesson 4">
+          <!-- <category  name="Lesson 4">
             <block type="in_list_get"></block>
             <block type="do_for_each"></block>
             <block type="get_text"></block>
             <block type="this"></block>
             <block type="change_in_text"></block>
             <block type="set_text"></block>
-          </category>
+          </category> -->
       </category>
     <category name="Chapter 4 (Database)">
-      <category name="Lesson 1">
+    <category name="Introduction">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/668b0500200449f1b9226c3f825fff1c</comment>
+        </block>
+    </category>
+      <category name="Lesson 1 (Connect)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/b5fa99922fb14036afda408a25da0ab3</comment>
+        </block>
         <block type="airtable_url"></block>
+        <block type="do_for_every_element_in_table"><value name="table"><block type="text"><field name="TEXT">Table</field></block></value></block>
+        <block type="console_log"></block>
+        <block type="get_value_from_row"></block>
+        <block type="get_id_from_row"></block>
+      </category>
+      <category name="Lesson 2 (Build)">
+        <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/54c947f1ad1541b78b42453c432dfb4b</comment>
+        </block>
         <block type="get_data"><statement name="fields"><block type="get_field"></block></statement></block>
       </category>
-      <category name="Lesson 2">
+      <category name="Lesson 3 (Create)">
+        <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/eec390577cc4479981e08fdbfb0cdaa9</comment>
+        </block>
         <block type="airtable"><statement name="fields"><block type="airtable_field"></block></statement></block>
         </block>
       </category>
-      <category name="Lesson 3">
+      <category name="Lesson 4 (Read)">
+        <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/e63360a5216a41cb8401a8f559b44a1e</comment>
+        </block>
         <block type="get_single_airtable" id="MVn.lMBHl/%ecs$#)KNR" x="-1626" y="-273"><value name="id"><block type="get_parametr" id="R::@*]5Mud~TSyuzt_ap"><field name="parametr">id</field></block></value><statement name="action"><block type="get_single_field" id="br,$Ii`4#spuor5YRPFY"></block></statement><statement name="do"><block type="set_value" id="a{jEC(E^;Qm[]i4{,)U2"></block></statement></block>
         <block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="get_parametr"><field name="parametr">id</field></block></value><value name="B"><block type="text"><field name="TEXT"></field></block></value></block></value></block>
       </category>
-      <category name="Lesson 4">
+      <category name="Lesson 5 (Update)">
+      <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/c7bd5d086fc7460f9bdbcc7c040a6c3c</comment>
+        </block>
         <block type="airtable_update"><value name="NAME"><block type="get_parametr"><field name="parametr">id</field></block></value><statement name="fields"><block type="airtable_field"></block></statement></block>
       </category>
-      <category name="Lesson 5">
+      <category name="Lesson 6 (Delete)">
+      <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/d46ab04c2ea14a6787e1ce0ba66d2efa</comment>
+        </block>
         <block type="airtable_delete_row"></block>
         <block type="reload_page"></block>
       </category>
       
     </category>
-      
-    
+      <category name="Chapter 5 (Login)">
+        <category name="Lesson 1 (Relative)">
+        <block type="tutorial">
+          <comment pinned="true" h="100" w="160">https://www.loom.com/share/c1eb5912a1944268aad4168b00ff9d81</comment>
+        </block>
+          <block type="add_user_field"></block>
+        </category>
+        <category name="Lesson 2 (Login)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/d06223fe33e0418c974491afb8723bc0</comment>
+        </block>
+        </category>
+        <category name="Lesson 3 (User Data)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/480430a5ff5e475da6a23c985e7a119a</comment>
+        </block>
+        </category>
+        <category name="Lesson 4 (Relative Build)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/3c9430cf4a444683b13ef12e57121b50</comment>
+        </block>
+        </category>
+        <category name="Lesson 5 (Load Animation)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/a8d443af40da452bb0abeff634d868cb</comment>
+        </block>
+        </category>
+        <category name="Lesson 6 (Password)">
+        <block type="tutorial">
+        <comment pinned="true" h="100" w="160">https://www.loom.com/share/3c856faa56b94af3b6a597c32b4d12f5</comment>
+        </block>
+        </category>
+      </category>
     </category>
 
       
       <category name="Basics" colour="%{BKY_TEXTS_HUE}">
+      
       <block type="mouse_event">
 <field name="on">click</field>
 <value name="into">
@@ -286,6 +347,7 @@
 <field name="element">.</field>
 <field name="NAME">class-name</field>
 </block>
+
 </value>
 </block>
 <block type="add_class">
@@ -323,18 +385,29 @@
         <!-- <block type="mouse_event"></block> -->
         <block type="element"></block>   
         
-        
+        <block type="element_from_variable"></block>
         <block type="this"></block>
         <!-- <block type="to_number"></block> -->
         <block type="reload_page"></block>
-        <block type="redirect_to"></block>
+        <block type="redirect_to_url">
+          <value name="url">
+            <block type="text">
+            </block>
+          </value>
+        </block>
+
         <block type="browser_language"></block>
         <block type="get_attr"></block>
         <block type="get_script"></block>
         
-        
+        <block type="count_elements"></block>
+        <block type="element_number"></block>
         
         <block type="draft"></block>
+
+        <block type="new_block"></block>
+
+        
         
       
       </category>
@@ -418,32 +491,55 @@
           <block type="to_number"></block>
       </category>
       <category name="Database" colour="#5b67a5">
+        <category name="Build">
+          <block type="get_data"></block>
+          <block type="get_field"></block>
+          <block type="get_value_from_row"></block>
+          <block type="get_id_from_row"></block>
+          <block type="create_list_related_lookup"></block>
+          <block type="related_field_element"></block>
+          <block type="read_related_record"></block>
+        </category>
+        <category name="Create">
+          <block type="airtable"></block>
+          <block type="airtable_field"></block>
+          <block type="add_user_field"></block>
+        </category>
+        <category name="Read">
+          <block type="do_for_every_element_in_table"></block>
+          <block type="get_single_airtable"></block>
+          <block type="get_value_from_row"></block>
+          <block type="get_id_from_row"></block>
+          <block type="read_change_id"></block>
+          
+        </category>
+        <category name="Update">
+          <block type="airtable_update"></block>
+          <block type="airtable_field"></block>
+        </category>
+
+        <category name="Delete">
+          <block type="airtable_delete_row"></block>
+        </category>
+        
         <block type="airtable_url"></block>
-        <block type="get_data"></block>
-        <block type="get_field"></block>
-        <block type="airtable"></block>
-        <block type="airtable_update"></block>
-        <block type="airtable_field"></block>
         <block type="get_parametr"></block>
-        <block type="get_single_airtable"></block>
-        <block type="get_single_field"></block>
-        <block type="get_value_from_key"></block>
-        <block type="update_airtable_list"></block>
+        <block type="console_log"></block>
+        
+        <!--<block type="get_value_from_key"></block>
         <block type="create_list_related"></block>
-        <block type="get_releted_field"></block>
-        
-        <block type="change_table"></block>
-
-        <block type="do_for_every_element_in_table"></block>
-        <block type="get_value_from_row"></block>
-        <block type="get_id_from_row"></block>
-        <block type="add_user_field"></block>
-        
-        
-        
-
-        <!-- <block type="get_key"></block>
+        <block type="get_releted_field"></block> 
+        <block type="change_table"></block> 
+        <block type="get_key"></block>
         <block type="get_text"></block> -->
+        
+        
+        
+        
+        
+        
+        
+        
       </category>
         <category name="Logic" colour="#5C81A6">
           <block type="controls_if">
