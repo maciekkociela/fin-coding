@@ -1,0 +1,11 @@
+<xml
+      xmlns="https://developers.google.com/blockly/xml"
+      id="toolbox"
+      style="display: none;"
+    >
+    <category name="Academy">
+    </category>
+    <category name="Hello JP">
+      <block type="new_block"></block>
+    </category>
+</xml>
