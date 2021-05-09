@@ -1,0 +1,7 @@
+<xml
+      xmlns="https://developers.google.com/blockly/xml"
+      id="toolbox"
+      style="display: none;"
+    >
+    <block type="new_block"></block>
+</xml>

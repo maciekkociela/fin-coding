@@ -7,9 +7,9 @@ Blockly.JavaScript["get_checkbox"] = function (block) {
   var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
   // TODO: Assemble JavaScript into code variable.
   var code =
-    "var value_string = '" +
+    "var value_string = varToString({ " +
     value_value +
-    "';\n" +
+    " });\n" +
     "$('[name='+value_string+']').on('input',function() {" +
     value_value +
     " = $(this).val(); if($(this).is(':checkbox')) { " +
@@ -62,6 +62,7 @@ Blockly.JavaScript["change_text"] = function (block) {
 Blockly.JavaScript["element"] = function (block) {
   var dropdown_element = block.getFieldValue("element");
   var text_name = block.getFieldValue("NAME");
+  text_name = text_name.replace(/\s+/g, "-").toLowerCase();
   // TODO: Assemble JavaScript into code variable.
 
   var code = "'" + dropdown_element + text_name + "'";
@@ -123,13 +124,14 @@ Blockly.JavaScript["range_slider_move"] = function (block) {
     " var range = $(name).val(); range = parseFloat(range);" +
     " var width = $(name).width() - 10; var range_max = $(name).attr('max');" +
     " width = width / range_max; width = width * (range - 1); " +
-    " $(swiper).css({ transform: 'translateX(' + width + 'px)' }); $(swiper).text(range); }";
+    " $(swiper).css({ transform: 'translateX(' + width + 'px)' });  }";
   return code;
 };
 
 Blockly.JavaScript["add_class"] = function (block) {
   var dropdown_name = block.getFieldValue("NAME");
   var text_add_class = block.getFieldValue("add_class");
+  text_add_class = text_add_class.replace(/\s+/g, "-").toLowerCase();
   var checkbox_child = block.getFieldValue("child") == "TRUE";
   if (checkbox_child == 1) {
     checkbox_child = ", this";
@@ -517,10 +519,12 @@ Blockly.JavaScript["mouse_event"] = function (block) {
 
 Blockly.JavaScript["set_css"] = function (block) {
   var statements_css = Blockly.JavaScript.statementToCode(block, "css");
+  statements_css = statements_css.slice(0, -2);
+  statements_css = statements_css + "\n";
   var value_to = Blockly.JavaScript.valueToCode(
     block,
     "to",
-    Blockly.JavaScript.ORDER_ATOMIC
+    Blockly.JavaScript.ORDER_NONE
   );
   // TODO: Assemble JavaScript into code variable.
   var code = "$(" + value_to + ").css({\n" + statements_css + "});\n";
@@ -557,6 +561,10 @@ Blockly.JavaScript["animate"] = function (block) {
     "element",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+
+  statements_animate = statements_animate.slice(0, -2);
+  statements_animate = statements_animate + "\n";
+
   var checkbox_queue = block.getFieldValue("queue") == "TRUE";
   // TODO: Assemble JavaScript into code variable.
   var code =
@@ -945,7 +953,6 @@ Blockly.JavaScript["duplicate_code_using_list"] = function (block) {
     if (duplicate_list[i] != "input_empty") {
       code += statements_code.replaceAll("input_var", duplicate_list[i]);
       code = code.replaceAll("input_index", i + 1);
-      code += "\n";
     }
   }
   return code;
@@ -993,7 +1000,8 @@ Blockly.JavaScript["list_of_inputs"] = function (block) {
 
 Blockly.JavaScript["reload_page"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = "window.location = window.location.href.split('?')[0];\n";
+  //var code = "window.location = window.location.href.split('?')[0];\n";
+  var code = "window.location.reload(true);\n";
   return code;
 };
 
@@ -1274,20 +1282,22 @@ Blockly.JavaScript["create_list_related_lookup"] = function (block) {
       '/'+${value_table}+'/'+${value_id}+'?api_key=' +
       airtable_key,
     function (val) {
-      for (var i = 0; i !== val.fields.${value_related}.length; i++) {
-        var dataTile = dataTemplate_${value_table};
-        dataTile = dataTile.replace("[id]", val.fields.${value_related}[i]);
-        var collection_list_element = ${value_name};\n
-        var collection_item_id = val.fields.${value_related}[i];\n
-        if(${value_filter}) {
-        ${statements_fields}
-        $(collection_list_element).append(dataTile);
-                $(collection_list_element)
-                  .children("div")
-                  .last()
-                  .attr("id_key", collection_item_id);
-        }  
-        ${statements_do}
+      if(val.fields.${value_related} !== undefined) {
+        for (var i = 0; i !== val.fields.${value_related}.length; i++) {
+          var dataTile = dataTemplate_${value_table};
+          dataTile = dataTile.replace("[id]", val.fields.${value_related}[i]);
+          var collection_list_element = ${value_name};\n
+          var collection_item_id = val.fields.${value_related}[i];\n
+          if(${value_filter}) {
+          ${statements_fields}
+          $(collection_list_element).append(dataTile);
+                  $(collection_list_element)
+                    .children("div")
+                    .last()
+                    .attr("id_key", collection_item_id);
+          }  
+          ${statements_do}
+        }
       }
       ${statements_doafter}
     }
@@ -1353,7 +1363,7 @@ Blockly.JavaScript["element_number"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_number}).eq(${value_element}-1`;
+  var code = `${value_number}).eq(${value_element} - 1`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -1361,7 +1371,6 @@ Blockly.JavaScript["element_number"] = function (block) {
 Blockly.JavaScript["read_change_id"] = function (block) {
   // TODO: Assemble JavaScript into code variable.
   var code = `$("a").each(function () {
-    console.log(val.id);
     var text_id_change = $(this).attr("href");
     $(this).attr("href",text_id_change.replace("[id]", val.id));
   });`;
@@ -1376,5 +1385,93 @@ Blockly.JavaScript["redirect_to_url"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   var code = `window.location.replace(${value_url});\n`;
+  return code;
+};
+
+Blockly.JavaScript["block_section"] = function (block) {
+  var text_block = block.getFieldValue("block");
+  var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${statements_name}`;
+  return code;
+};
+
+Blockly.JavaScript["page_attribute"] = function (block) {
+  var text_page = block.getFieldValue("page");
+  var statements_blocks = Blockly.JavaScript.statementToCode(block, "blocks");
+  // TODO: Assemble JavaScript into code variable.
+  var code = `if($('body').attr('page') == '${text_page}') {\n${statements_blocks}\n}`;
+  return code;
+};
+
+Blockly.JavaScript["update_input_using_value"] = function (block) {
+  var value_input = Blockly.JavaScript.valueToCode(
+    block,
+    "input",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code =
+    "var value_string = '" +
+    value_input +
+    "';" +
+    "\n if($('[name='+value_string+']').is(':radio'))\n {" +
+    "$('[name='+value_string+'][value='+" +
+    value_input +
+    "+']')" +
+    '.siblings(".w-form-formradioinput")' +
+    '.addClass("w--redirected-checked");' +
+    "} else {" +
+    "$('[name='+value_string+']').val(" +
+    value_value +
+    "); if ($('[name='+value_string+']').is(':checkbox')) {  if(" +
+    value_value +
+    " == 'true') { $('[name='+value_string+']').siblings('.w-checkbox-input').addClass('w--redirected-checked'); }}}";
+  return code;
+};
+
+Blockly.JavaScript["current"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  value_name = value_name.slice(0, -1);
+  value_name = value_name.substring(1);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `'${value_name}.w--current'`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["get_local_with_initial"] = function (block) {
+  var value_variable = Blockly.JavaScript.valueToCode(
+    block,
+    "variable",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_value = Blockly.JavaScript.valueToCode(
+    block,
+    "value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${value_variable} = Cookies.get('${value_variable}');
+  if (${value_variable} != undefined) {
+    if (${value_variable} == 'true') {
+      ${value_variable} = true;
+    }
+    if (${value_variable} == 'false') {
+      ${value_variable} = false;
+    }
+  }
+  if (${value_variable} == undefined) {
+    ${value_variable} = ${value_value};
+  }`;
   return code;
 };

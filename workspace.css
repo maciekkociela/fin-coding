@@ -1,0 +1,405 @@
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("https://assets.website-files.com/60925fad735d575b6f022918/609279ca8b14782f26fc526c_PlusJakartaDisplay-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("https://assets.website-files.com/60925fad735d575b6f022918/609279caf7bc574a8f908b54_PlusJakartaDisplay-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("https://assets.website-files.com/60925fad735d575b6f022918/609279ca13d7836f08b4a00b_PlusJakartaDisplay-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("https://assets.website-files.com/60925fad735d575b6f022918/609279cd772162522a81fa78_PlusJakartaDisplay-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Database Icon */
+
+#blockly-4 {
+  background-position: center;
+  background-color: #0b92e0;
+  border-color: #0b92e0;
+  height: 38px;
+  background-image: url("https://uploads-ssl.webflow.com/60925fad735d575b6f022918/6097e042d4faa028a1eaa929_database.svg");
+  background-size: 56%;
+  background-repeat: no-repeat;
+}
+
+[aria-expanded="false"] #blockly-4 {
+  border-color: #0b92e0 !important;
+}
+
+[aria-expanded="true"] #blockly-4 {
+  border-color: #fff !important;
+}
+
+.blocklyTreeIcon {
+  display: none !important;
+}
+
+/* [aria-labelledby="blockly-0.label"] {
+  background: #444444;
+  padding: 20px 0;
+  margin-bottom: 10px;
+} */
+
+/* Makes our label white. */
+.blocklyTreeLabel {
+  color: white;
+}
+
+/* Adds padding around the group of categories and separators. */
+.blocklyToolboxContents {
+  padding: 0.5em;
+}
+.blocklyToolboxContents .blocklyToolboxContents {
+  padding: 0;
+}
+/* Adds space between the categories, rounds the corners and adds space around the label. */
+.blocklyTreeRow {
+  padding: 6px 8px !important;
+  margin-bottom: 0.5em;
+  border-radius: 4px;
+  height: 31px;
+}
+
+.blocklyTreeRow {
+  border-width: 2px !important;
+  border-style: solid !important;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.blocklyTreeRow:hover {
+  /* border-color: #fff !important; */
+}
+
+.blocklyTreeRow:hover .blocklyTreeLabel {
+  opacity: 1;
+}
+
+.blocklyTreeLabel {
+  transition: 0.2s;
+  opacity: 0;
+  margin-top: 2px;
+  font: 12px sans-serif;
+  background: #222;
+  padding: 4px 10px 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-top: -2px;
+}
+
+/* Changes color of the icon to white. */
+.customIcon {
+  color: white;
+}
+/* Stacks the icon on top of the label. */
+.blocklyTreeRowContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blocklyTreeRow {
+  height: initial;
+}
+
+.blocklyTreeIconClosed {
+  opacity: 0;
+}
+
+.blocklySvg {
+  background: #222;
+}
+
+.geras-renderer.classic-theme .blocklyText,
+.geras-renderer.classic-theme .blocklyFlyoutLabelText,
+.blocklyTreeLabel,
+.geras-renderer.classic-theme .blocklyHtmlInput,
+.zelos-renderer.classic-theme .blocklyText,
+.zelos-renderer.classic-theme .blocklyHtmlInput {
+  font-family: "Plus Jakarta" !important;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+}
+
+.blocklyTreeRow {
+  height: initial;
+  position: relative;
+}
+
+.fixed-logo {
+  width: 24px;
+  position: fixed;
+  z-index: 999;
+  top: 13px;
+  left: 17px;
+  opacity: 0.8;
+}
+
+.blocklyTreeLabel {
+  position: absolute;
+  left: 49px;
+}
+
+.blocklyToolboxDiv {
+  padding-top: 36px;
+  overflow: initial;
+}
+
+.blocklyPath {
+  /* fill: #444; */
+}
+.blocklyMainBackground {
+  stroke-width: 1;
+  stroke: #222;
+}
+.blocklyToolboxDiv {
+  color: #fff;
+  background-color: #4e4e4e;
+}
+.flexCode {
+  color: #fff;
+  background: #333;
+}
+a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.blocklyPathDark {
+  fill: #222;
+}
+
+.blocklyFlyoutBackground {
+  fill: #464646;
+  fill-opacity: 0.8;
+}
+.weblocs-logo {
+  max-width: 130px;
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+.connect {
+  cursor: pointer;
+}
+.connect-box {
+  display: none;
+}
+.connect-box.active {
+  display: block;
+}
+.setting-icon {
+  width: 24px;
+}
+.logo-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.connect-box {
+  padding-top: 24px;
+}
+.flexCode {
+  display: flex;
+  flex-direction: column;
+}
+
+.codeBox {
+  height: 100% !important;
+}
+
+html {
+  margin-top: 0px !important;
+}
+
+#wpadminbar {
+  display: none;
+}
+
+.codeBox {
+  margin-top: 22px !important;
+}
+
+.setting-icon {
+  opacity: 0.6;
+  transition: 0.2s opacity;
+}
+
+.setting-icon:hover {
+  opacity: 1;
+}
+
+#fileButton {
+  outline: none;
+  color: #333;
+}
+
+#fileButton::-webkit-file-upload-button {
+  visibility: hidden;
+}
+#fileButton::before {
+  content: "IMPORT";
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+  color: #b5b5b5;
+  padding: 10px 20px;
+  font-size: 12px;
+  border-radius: 0;
+  line-height: 20px;
+}
+#fileButton:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+p {
+  border: 1px solid #636363;
+  color: #d2d2d2;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0 !important;
+}
+.connect-box button {
+  background: #333 !important;
+  border: 1px solid #636363 !important;
+  color: #b5b5b5;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none !important;
+}
+
+@-webkit-keyframes blink {
+  from {
+    fill: black;
+  }
+  to {
+    fill: red;
+  }
+}
+@-moz-keyframes blink {
+  from {
+    fill: black;
+  }
+  to {
+    fill: red;
+  }
+}
+@-ms-keyframes blink {
+  from {
+    fill: black;
+  }
+  to {
+    fill: red;
+  }
+}
+@-o-keyframes blink {
+  from {
+    fill: black;
+  }
+  to {
+    fill: red;
+  }
+}
+@keyframes blink {
+  from {
+    fill: black;
+  }
+  to {
+    fill: red;
+  }
+}
+
+path.blocklyPath.blockly-ws-search-highlight {
+  fill: black;
+  -webkit-animation: blink 0.5s 113 alternate;
+  -moz-animation: blink 0.5s 113 alternate;
+  -ms-animation: blink 0.5s 113 alternate;
+  -o-animation: blink 0.5s 113 alternate;
+  animation: blink 0.5s 113 alternate;
+}
+
+.blockly-ws-search-previous-btn,
+.blockly-ws-search-next-btn,
+.blockly-ws-search-close-btn {
+  padding: 10px 15px;
+  background-position: center;
+}
+
+.blockly-ws-search {
+  box-shadow: none !important;
+  top: 20px !important;
+  right: 20px !important;
+}
+
+#blocklyDiv2 {
+  display: none;
+}
+
+.open-panel-icon {
+  position: fixed;
+  width: 26px;
+  opacity: 0.3;
+  right: 15px;
+  top: 15px;
+  z-index: 999;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.open-panel-icon:hover {
+  opacity: 0.6;
+}
+
+/* Show/Hide Code */
+
+.flexBox {
+  width: 100% !important;
+}
+
+.flexCode {
+  width: 0% !important;
+  padding: 0 !important;
+}
+
+.flexCode.load {
+  width: 30% !important;
+  padding: 16px !important;
+}
+
+.hidden .flexCode.load {
+  width: 0% !important;
+  padding: 0 !important;
+}
+
+/* .hidden .flexBox a {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+} */

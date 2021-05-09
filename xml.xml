@@ -3,7 +3,7 @@
       id="toolbox"
       style="display: none;"
     >
-    <category name="Academy">
+    <!-- <category name="Academy">
     <category name="Chapter 1 (Logic)">
       <category name="Lesson 1 (Set CSS)">
       <block type="tutorial">
@@ -203,7 +203,9 @@
         <block type="tutorial">
         <comment pinned="true" h="100" w="160">https://www.loom.com/share/41a3989e754f4037a2ba18ede80eea76</comment>
         </block>
-          <block type="set_cookie_value"></block>
+          
+          <block type="get_local_with_initial"></block>
+          
           <block type="get_cookie_value"></block>
           <block type="set_value"></block>
           <block type="get_checkbox"></block>
@@ -228,14 +230,6 @@
           <block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="B"><block type="undefined"></block></value></block></value></block>
           <block type="to_number"></block>
           </category>
-          <!-- <category  name="Lesson 4">
-            <block type="in_list_get"></block>
-            <block type="do_for_each"></block>
-            <block type="get_text"></block>
-            <block type="this"></block>
-            <block type="change_in_text"></block>
-            <block type="set_text"></block>
-          </category> -->
       </category>
     <category name="Chapter 4 (Database)">
     <category name="Introduction">
@@ -321,7 +315,7 @@
         </block>
         </category>
       </category>
-    </category>
+    </category> -->
 
       
       <category name="Basics" colour="%{BKY_TEXTS_HUE}">
@@ -378,7 +372,7 @@
 </block>
         
         <!-- <block type="add_class"></block> -->
-        
+        <block type="block_section"></block>
         
         <!-- <block type="set_css"></block> -->
         <block type="css_value"></block>
@@ -403,11 +397,12 @@
         <block type="count_elements"></block>
         <block type="element_number"></block>
         
+        <block type="page_attribute"></block>
+        
+        <block type="current"></block>
+        
         <block type="draft"></block>
 
-        
-
-        
         
       
       </category>
@@ -435,6 +430,8 @@
 </statement>
 </block>
 <block type="set_value"></block>
+<block type="update_input_using_value"></block>
+
         <block type="get_checkbox"></block>
         <block type="submit"></block>
         <block type="range_slider_move"></block>
@@ -443,7 +440,7 @@
         <block type="input_on_change"></block>
         <block type="set_input_on_change"></block>
       </category>
-      <category name="Animation" colour="#a55b5a">
+      <category name="Animations" colour="#a55b5a">
         <block type="animate">
 <field name="queue">TRUE</field>
 <statement name="animate">
@@ -483,15 +480,21 @@
         
       </category>
       
-      <category name="Local Storage" colour="%{BKY_TEXTS_HUE}">
+      <category name="Local" colour="%{BKY_TEXTS_HUE}">
           <block type="set_cookie_value"></block>
-          <block type="get_cookie_value"></block>
-          <block type="undefined"></block>
-          <block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="B"><block type="undefined"></block></value></block></value></block>
+          <block type="get_local_with_initial"></block>
+          <!-- <block type="get_cookie_value"></block> -->
+          <!-- <block type="undefined"></block> -->
+          <!-- <block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="B"><block type="undefined"></block></value></block></value></block> -->
           <block type="to_number"></block>
       </category>
-      <category name="Database" colour="#5b67a5">
-        <category name="Build">
+      <category name="Database"  colour="#0b92e0" >
+      <category name="Connect"  colour="#0b92e0">
+      <block type="airtable_url"></block>
+        <block type="get_parametr"></block>
+        <block type="console_log"></block>
+        </category>
+        <category name="Build"  colour="#0b92e0">
           <block type="get_data"></block>
           <block type="get_field"></block>
           <block type="get_value_from_row"></block>
@@ -500,12 +503,12 @@
           <block type="related_field_element"></block>
           <block type="read_related_record"></block>
         </category>
-        <category name="Create">
+        <category name="Create"  colour="#0b92e0">
           <block type="airtable"></block>
           <block type="airtable_field"></block>
           <block type="add_user_field"></block>
         </category>
-        <category name="Read">
+        <category name="Read"  colour="#0b92e0">
           <block type="do_for_every_element_in_table"></block>
           <block type="get_single_airtable"></block>
           <block type="get_value_from_row"></block>
@@ -513,18 +516,16 @@
           <block type="read_change_id"></block>
           
         </category>
-        <category name="Update">
+        <category name="Update"  colour="#0b92e0">
           <block type="airtable_update"></block>
           <block type="airtable_field"></block>
         </category>
 
-        <category name="Delete">
+        <category name="Delete"  colour="#0b92e0">
           <block type="airtable_delete_row"></block>
         </category>
         
-        <block type="airtable_url"></block>
-        <block type="get_parametr"></block>
-        <block type="console_log"></block>
+        
         
         <!--<block type="get_value_from_key"></block>
         <block type="create_list_related"></block>
@@ -535,13 +536,11 @@
         
         
         
-        
-        
-        
-        
-        
-      </category>
-        <category name="Logic" colour="#5C81A6">
+       </category>
+
+
+
+        <category css-icon="customIcon fa fa-cog" name="Logic" colour="#5C81A6">
           <block type="controls_if">
 <value name="IF0">
 <block type="logic_compare">
@@ -862,7 +861,7 @@
             <field name="DIRECTION">1</field>
           </block>
         </category>
-        <category name="Colour" colour="#A6745C">
+        <!-- <category name="Colour" colour="#A6745C">
           <block type="colour_picker">
             <field name="COLOUR">#ff0000</field>
           </block>
@@ -901,15 +900,15 @@
               </shadow>
             </value>
           </block>
-        </category>
+        </category> -->
         <category
           name="Variables"
-          colour="#A65C81"
+          colour="#636e72"
           custom="VARIABLE"
         ></category>
         <category
           name="Functions"
-          colour="#9A5CA6"
+          colour="#4253FF"
           custom="PROCEDURE"
         ></category>
       

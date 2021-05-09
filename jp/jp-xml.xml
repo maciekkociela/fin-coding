@@ -3,9 +3,9 @@
       id="toolbox"
       style="display: none;"
     >
-    <category name="Academy">
-    </category>
-    <category name="Hello JP">
       <block type="new_block"></block>
-    </category>
+      <block type="scroll_in_view"></block>
+      <block type="tram"></block>
+      <block type="css_property"></block>
+
 </xml>

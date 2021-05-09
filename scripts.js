@@ -9,7 +9,7 @@ Blockly.Blocks["get_checkbox"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#939819");
+    this.setColour("#ffab19");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -24,7 +24,7 @@ Blockly.Blocks["change_text"] = {
       .appendField("in");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -44,7 +44,7 @@ Blockly.Blocks["element"] = {
       )
       .appendField(new Blockly.FieldTextInput("class-name"), "NAME");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -63,7 +63,7 @@ Blockly.Blocks["range_slider_move"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#939819");
+    this.setColour("#ffab19");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -94,7 +94,7 @@ Blockly.Blocks["add_class"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -106,7 +106,7 @@ Blockly.Blocks["add_class"] = {
 //     this.appendStatementInput("fields").setCheck(null);
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(230);
+//     this.setColour("#0c92e0");
 //     this.setTooltip("");
 //     this.setHelpUrl("");
 //   }
@@ -120,7 +120,7 @@ Blockly.Blocks["add_class"] = {
 //     this.appendStatementInput("fields").setCheck(null);
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(230);
+//     this.setColour("#0c92e0");
 //     this.setTooltip("");
 //     this.setHelpUrl("");
 //   }
@@ -136,7 +136,7 @@ Blockly.Blocks["airtable"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -147,7 +147,7 @@ Blockly.Blocks["airtable_field"] = {
     this.appendValueInput("field").setCheck(null).appendField("field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -155,15 +155,17 @@ Blockly.Blocks["airtable_field"] = {
 
 Blockly.Blocks["submit"] = {
   init: function () {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField("submit");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("submit")
+      .appendField(new Blockly.FieldTextInput("form"), "form");
     this.appendStatementInput("NAME")
       .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(new Blockly.FieldTextInput("form"), "form");
+      .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#939819");
+    this.setColour("#ffab19");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -178,7 +180,7 @@ Blockly.Blocks["submit"] = {
 //     this.appendStatementInput("do").setCheck(null).appendField("do");
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(230);
+//     this.setColour("#0c92e0");
 //     this.setTooltip("");
 //     this.setHelpUrl("");
 //   }
@@ -199,7 +201,7 @@ Blockly.Blocks["get_data"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -212,7 +214,7 @@ Blockly.Blocks["get_field"] = {
       .appendField("collection field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -224,7 +226,7 @@ Blockly.Blocks["get_parametr"] = {
       .appendField("get parametr")
       .appendField(new Blockly.FieldTextInput("parametr"), "parametr");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -249,7 +251,7 @@ Blockly.Blocks["mouse_event"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -264,7 +266,7 @@ Blockly.Blocks["set_css"] = {
       .appendField("to");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -276,9 +278,54 @@ Blockly.Blocks["css_value"] = {
       .appendField(
         new Blockly.FieldDropdown([
           ["Opacity", "opacity"],
+          ["Display", "display"],
           ["Background Color", "background-color"],
+          ["Border Color", "border-color"],
+          ["Font Color", "color"],
           ["Font Size", "font-size"],
-          ["Display", "display"]
+          ["background", "background"],
+          ["outline-color", "outline-color"],
+          ["border-color", "border-color"],
+          ["border-top-color", "border-top-color"],
+          ["border-right-color", "border-right-color"],
+          ["border-bottom-color", "border-bottom-color"],
+          ["border-left-color", "border-left-color"],
+          ["border-width", "border-width"],
+          ["border-top-width", "border-top-width"],
+          ["border-right-width", "border-right-width"],
+          ["border-bottom-width", "border-bottom-width"],
+          ["border-left-width", "border-left-width"],
+          ["border-spacing", "border-spacing"],
+          ["letter-spacing", "letter-spacing"],
+          ["margin", "margin"],
+          ["margin-top", "margin-top"],
+          ["margin-right", "margin-right"],
+          ["margin-bottom", "margin-bottom"],
+          ["margin-left", "margin-left"],
+          ["padding", "padding"],
+          ["padding-top", "padding-top"],
+          ["padding-right", "padding-right"],
+          ["padding-bottom", "padding-bottom"],
+          ["padding-left", "padding-left"],
+          ["outline-width", "outline-width"],
+          ["top", "top"],
+          ["right", "right"],
+          ["bottom", "bottom"],
+          ["left", "left"],
+          ["font-size", "font-size"],
+          ["text-indent", "text-indent"],
+          ["word-spacing", "word-spacing"],
+          ["width", "width"],
+          ["min-width", "min-width"],
+          ["max-width", "max-width"],
+          ["height", "height"],
+          ["min-height", "min-height"],
+          ["max-height", "max-height"],
+          ["line-height", "line-height"],
+          ["transform", "transform"],
+          ["scroll-top", "scroll-top"],
+          ["scroll-left", "scroll-left"],
+          ["Z Index", "z-index"]
         ]),
         "NAME"
       )
@@ -286,7 +333,7 @@ Blockly.Blocks["css_value"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -425,7 +472,7 @@ Blockly.Blocks["animation_property"] = {
 //     this.appendStatementInput("fields").setCheck(null);
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(230);
+//     this.setColour("#0c92e0");
 //     this.setTooltip("");
 //     this.setHelpUrl("");
 //   }
@@ -442,7 +489,7 @@ Blockly.Blocks["airtable_update"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -460,7 +507,7 @@ Blockly.Blocks["airtable_delete_row"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -481,7 +528,7 @@ Blockly.Blocks["get_single_airtable"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -494,7 +541,7 @@ Blockly.Blocks["get_single_field"] = {
       .appendField("get single field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -504,7 +551,7 @@ Blockly.Blocks["get_key"] = {
   init: function () {
     this.appendValueInput("NAME").setCheck(null).appendField("get key");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -514,7 +561,7 @@ Blockly.Blocks["get_text"] = {
   init: function () {
     this.appendValueInput("NAME").setCheck(null).appendField("get text");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -525,7 +572,7 @@ Blockly.Blocks["this"] = {
     this.appendDummyInput().appendField("this");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -537,7 +584,7 @@ Blockly.Blocks["to_number"] = {
       .appendField("change into number");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -557,7 +604,7 @@ Blockly.Blocks["airtable_url"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -580,7 +627,7 @@ Blockly.Blocks["get_value_from_key"] = {
       .appendField("get value from item");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -592,7 +639,7 @@ Blockly.Blocks["update_list"] = {
     this.appendStatementInput("fields").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -605,7 +652,7 @@ Blockly.Blocks["update_list_field"] = {
       .appendField("update list field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -623,7 +670,7 @@ Blockly.Blocks["update_airtable_list"] = {
       .appendField("update to");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -632,7 +679,7 @@ Blockly.Blocks["update_airtable_list"] = {
 Blockly.Blocks["tutorial"] = {
   init: function () {
     this.appendDummyInput().appendField("tutorial");
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -641,7 +688,7 @@ Blockly.Blocks["tutorial"] = {
 Blockly.Blocks["cloneable"] = {
   init: function () {
     this.appendDummyInput().appendField("cloneable");
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -653,7 +700,7 @@ Blockly.Blocks["get_cookie"] = {
       .appendField("get cookie value")
       .appendField(new Blockly.FieldTextInput("cookieName"), "cookieName");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -668,7 +715,7 @@ Blockly.Blocks["set_cookies"] = {
       .appendField("value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -678,7 +725,7 @@ Blockly.Blocks["undefined"] = {
   init: function () {
     this.appendDummyInput().appendField("undefined");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -692,7 +739,7 @@ Blockly.Blocks["set_value"] = {
       .appendField("update value in input");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#939819");
+    this.setColour("#ffab19");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -703,7 +750,7 @@ Blockly.Blocks["set_cookie_value"] = {
     this.appendValueInput("cookie").setCheck(null).appendField("set local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -714,7 +761,7 @@ Blockly.Blocks["get_cookie_value"] = {
     this.appendValueInput("cookie").setCheck(null).appendField("get local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -843,7 +890,7 @@ Blockly.Blocks["reload_page"] = {
     this.appendDummyInput().appendField("reload page");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -865,7 +912,7 @@ Blockly.Blocks["reload_page"] = {
 //     this.setInputsInline(false);
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(230);
+//     this.setColour("#0c92e0");
 //     this.setTooltip("");
 //     this.setHelpUrl("");
 //   }
@@ -895,7 +942,7 @@ Blockly.Blocks["create_list_related"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -908,7 +955,7 @@ Blockly.Blocks["change_table"] = {
       .appendField(new Blockly.FieldTextInput("Table"), "table");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -918,7 +965,7 @@ Blockly.Blocks["browser_language"] = {
   init: function () {
     this.appendDummyInput().appendField("browser language");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -931,7 +978,7 @@ Blockly.Blocks["in_list_get"] = {
     this.appendValueInput("value2").setCheck(null);
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -943,7 +990,7 @@ Blockly.Blocks["do_for_each"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -956,7 +1003,7 @@ Blockly.Blocks["change_in_text"] = {
     this.appendValueInput("into").setCheck(null).appendField("into");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -969,7 +1016,7 @@ Blockly.Blocks["set_text"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -982,7 +1029,7 @@ Blockly.Blocks["get_releted_field"] = {
       .appendField("get releted field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -996,7 +1043,7 @@ Blockly.Blocks["get_attr"] = {
       .appendField(new Blockly.FieldTextInput("attribute"), "attribute")
       .appendField("from");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1009,7 +1056,7 @@ Blockly.Blocks["redirect_to"] = {
       .appendField(new Blockly.FieldTextInput("page"), "page");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1023,7 +1070,7 @@ Blockly.Blocks["do_for_every_element_in_table"] = {
     this.appendStatementInput("do").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1034,7 +1081,7 @@ Blockly.Blocks["get_script"] = {
     this.appendValueInput("script").setCheck(null).appendField("get script");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1044,7 +1091,7 @@ Blockly.Blocks["get_value_from_row"] = {
   init: function () {
     this.appendValueInput("value").setCheck(null).appendField("READ record");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1054,7 +1101,7 @@ Blockly.Blocks["get_id_from_row"] = {
   init: function () {
     this.appendDummyInput().appendField("READ [ID]");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1069,7 +1116,7 @@ Blockly.Blocks["add_user_field"] = {
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1105,7 +1152,7 @@ Blockly.Blocks["create_list_related_lookup"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1118,7 +1165,7 @@ Blockly.Blocks["related_field_element"] = {
       .appendField("collection related field");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1129,7 +1176,7 @@ Blockly.Blocks["console_log"] = {
     this.appendValueInput("value").setCheck(null).appendField("console log");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1149,7 +1196,7 @@ Blockly.Blocks["element_from_variable"] = {
         "element"
       );
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1161,7 +1208,7 @@ Blockly.Blocks["read_related_record"] = {
       .setCheck(null)
       .appendField("READ related record");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1173,7 +1220,7 @@ Blockly.Blocks["count_elements"] = {
       .setCheck(null)
       .appendField("count elements");
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1185,7 +1232,7 @@ Blockly.Blocks["element_number"] = {
     this.appendValueInput("element").setCheck(null).appendField("#");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1198,7 +1245,7 @@ Blockly.Blocks["read_change_id"] = {
     );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#0c92e0");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1209,7 +1256,76 @@ Blockly.Blocks["redirect_to_url"] = {
     this.appendValueInput("url").setCheck(null).appendField("redirect to");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(150);
+    this.setColour("#00b894");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["block_section"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput("default"),
+      "block"
+    );
+    this.appendStatementInput("NAME").setCheck(null);
+    this.setColour("#00b894");
+    this.setTooltip("");
+    this.setHelpUrl("");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks["page_attribute"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("name"), "page")
+      .appendField("Page attribute in body");
+    this.appendStatementInput("blocks").setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#00b894");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+//yellow #ffab19
+
+Blockly.Blocks["update_input_using_value"] = {
+  init: function () {
+    this.appendValueInput("input").setCheck(null).appendField("update input");
+    this.appendValueInput("value").setCheck(null).appendField("using value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#ffab19");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["current"] = {
+  init: function () {
+    this.appendValueInput("NAME").setCheck(null);
+    this.appendDummyInput().appendField("Current Link");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour("#00b894");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["get_local_with_initial"] = {
+  init: function () {
+    this.appendValueInput("variable").setCheck(null).appendField("get local");
+    this.appendValueInput("value")
+      .setCheck(null)
+      .appendField("set initial value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#00b894");
     this.setTooltip("");
     this.setHelpUrl("");
   }
