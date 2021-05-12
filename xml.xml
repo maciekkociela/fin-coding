@@ -317,9 +317,13 @@
       </category>
     </category> -->
 
+    
+
       
-      <category name="Basics" colour="%{BKY_TEXTS_HUE}">
+      <category name="Basics" colour="#00b894">
       
+      <!-- <category name="Triggers" colour="#00b894"> -->
+      <label text="Trigger" web-class="myLabelStyle"></label>
       <block type="mouse_event">
 <field name="on">click</field>
 <value name="into">
@@ -329,58 +333,36 @@
 </block>
 </value>
 </block>
-<block type="set_css">
-<statement name="css">
-<block type="css_value">
-<field name="NAME">opacity</field>
-<field name="value">0</field>
-</block>
-</statement>
-<value name="to">
-<block type="element">
-<field name="element">.</field>
-<field name="NAME">class-name</field>
-</block>
+<!-- </category> -->
 
-</value>
-</block>
-<block type="add_class">
-<field name="NAME">addClass</field>
-<field name="add_class">class-name</field>
-<field name="child">FALSE</field>
-<value name="trigger_class">
-<block type="element">
-<field name="element">.</field>
-<field name="NAME">class-name</field>
-</block>
-</value>
-</block>
-            
+<!-- <block type="add_class"></block> -->
         
-        <block type="change_text">
-<value name="text">
-<block type="text">
-<field name="TEXT">Text</field>
-</block>
-</value>
-<value name="element">
-<block type="element">
-<field name="element">.</field>
-<field name="NAME">class-name</field>
-</block>
-</value>
-</block>
-        
-        <!-- <block type="add_class"></block> -->
-        <block type="block_section"></block>
         
         <!-- <block type="set_css"></block> -->
-        <block type="css_value"></block>
+        <!-- <block type="css_value"></block> -->
         <!-- <block type="mouse_event"></block> -->
         <block type="element"></block>   
         
         <block type="element_from_variable"></block>
         <block type="this"></block>
+        <block type="element_number"></block>
+
+        <block type="current">
+<value name="NAME">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">button</field>
+</block>
+</value>
+</block>
+
+<label text="Blocks Minifier" web-class="myLabelStyle"></label>
+<block type="block_section"></block>           
+        
+        
+        <label text="Reloads" web-class="myLabelStyle"></label>
+        
+        
         <!-- <block type="to_number"></block> -->
         <block type="reload_page"></block>
         <block type="redirect_to_url">
@@ -390,23 +372,25 @@
           </value>
         </block>
 
+        <label text="Other" web-class="myLabelStyle"></label>
+
         <block type="browser_language"></block>
         <block type="get_attr"></block>
         <block type="get_script"></block>
         
-        <block type="count_elements"></block>
-        <block type="element_number"></block>
+        
+        
         
         <block type="page_attribute"></block>
         
-        <block type="current"></block>
         
-        <block type="draft"></block>
+        
+        
 
         
       
       </category>
-      <category name="Forms" colour="#939819">
+      <category name="Forms" colour="#ec9e15">
             <block type="get_checkbox">
 <value name="value">
 <block type="variables_get">
@@ -430,17 +414,45 @@
 </statement>
 </block>
 <block type="set_value"></block>
+<block type="submit"></block>
 <block type="update_input_using_value"></block>
 
         <block type="get_checkbox"></block>
-        <block type="submit"></block>
+        
         <block type="range_slider_move"></block>
-        <block type="input_function"></block>
+        <!-- <block type="input_function"></block>
         <block type="input_trigger"></block>
         <block type="input_on_change"></block>
-        <block type="set_input_on_change"></block>
+        <block type="set_input_on_change"></block> -->
       </category>
-      <category name="Animations" colour="#a55b5a">
+      <category name="Animations" colour="#6600c3">
+      <block type="set_css">
+<statement name="css">
+<block type="css_value">
+<field name="NAME">opacity</field>
+<field name="value">0</field>
+</block>
+</statement>
+<value name="to">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
+
+<block type="add_class">
+<field name="NAME">addClass</field>
+<field name="add_class">class-name</field>
+<field name="child">FALSE</field>
+<value name="trigger_class">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
+
         <block type="animate">
 <field name="queue">TRUE</field>
 <statement name="animate">
@@ -476,11 +488,11 @@
 </block>
 </value>
 </block>
-        <block type="animation_property"></block>
+        <!-- <block type="animation_property"></block> -->
         
       </category>
       
-      <category name="Local" colour="%{BKY_TEXTS_HUE}">
+      <category name="Local" colour="#00bcd4">
           <block type="set_cookie_value"></block>
           <block type="get_local_with_initial"></block>
           <!-- <block type="get_cookie_value"></block> -->
@@ -495,12 +507,16 @@
         <block type="console_log"></block>
         </category>
         <category name="Build"  colour="#0b92e0">
-          <block type="get_data"></block>
-          <block type="get_field"></block>
+
+<variables><variable id=")[(PctVvu3c`*IACnwmm">table_name</variable><variable id="~a;YXk@k`X$Eb9]Z6{Me">field_name</variable></variables><block type="get_data" id="O2eLRD+4EZ[F+S@:w?cF" x="15" y="-135"><value name="var"><block type="element" id="p(!,Kk5*,=`0;10qV=`S"><field name="element">.</field><field name="NAME">Collection Class</field></block></value><value name="table"><block type="variables_get" id="{4aq!Jv=kvp--vk{{vWw"><field name="VAR" id=")[(PctVvu3c`*IACnwmm">table_name</field></block></value><statement name="fields"><block type="get_field" id="a#e_G=wlP}^Ru2%B`ZIa"><value name="NAME"><block type="variables_get" id="NJ=L?:y.!]T19w~XiJUU"><field name="VAR" id="~a;YXk@k`X$Eb9]Z6{Me">field_name</field></block></value></block></statement></block>
+
+          <!-- <block type="get_data"></block> -->
+          <!-- <block type="get_field"></block> -->
           <block type="get_value_from_row"></block>
           <block type="get_id_from_row"></block>
-          <block type="create_list_related_lookup"></block>
-          <block type="related_field_element"></block>
+          <variables><variable id=")[(PctVvu3c`*IACnwmm">table_name</variable><variable id="~a;YXk@k`X$Eb9]Z6{Me">field_name</variable><variable id="CK9Tr.f:H)1-zXPQ,W70">user_id</variable></variables><block type="create_list_related_lookup" id="jAuy[IA[?H|~Z4vtb#]F" x="-135" y="-45"><value name="NAME"><block type="element" id="Pl5qDe,ScPdm/d6G)dh_"><field name="element">.</field><field name="NAME">Collection Class</field></block></value><value name="table"><block type="variables_get" id="qK[LX:p7TweD9@h0Oge5"><field name="VAR" id=")[(PctVvu3c`*IACnwmm">table_name</field></block></value><value name="related"><block type="variables_get" id=":)OkW`cSU11e$YmYw~k@"><field name="VAR" id="~a;YXk@k`X$Eb9]Z6{Me">field_name</field></block></value><value name="id"><block type="variables_get" id="N1wzR!c(6d,(Q(ereH,l"><field name="VAR" id="CK9Tr.f:H)1-zXPQ,W70">user_id</field></block></value><statement name="fields"><block type="related_field_element" id="*pjM`_kr[euT;pRZf?Nz"><value name="field"><block type="variables_get" id="?^m)f[Do^DW89[+O;]H5"><field name="VAR" id="~a;YXk@k`X$Eb9]Z6{Me">field_name</field></block></value></block></statement></block>
+          <!-- <block type="create_list_related_lookup"></block> -->
+          <!-- <block type="related_field_element"></block> -->
           <block type="read_related_record"></block>
         </category>
         <category name="Create"  colour="#0b92e0">
@@ -540,7 +556,7 @@
 
 
 
-        <category css-icon="customIcon fa fa-cog" name="Logic" colour="#5C81A6">
+        <category css-icon="customIcon fa fa-cog" name="Logic" colour="#8500ab">
           <block type="controls_if">
 <value name="IF0">
 <block type="logic_compare">
@@ -562,7 +578,7 @@
             <field name="OP">EQ</field>
           </block>
         </category>
-        <category name="Loops" colour="#5CA65C">
+        <category name="Loops" colour="#223496">
           <block type="controls_repeat_ext">
             <value name="TIMES">
               <shadow type="math_number">
@@ -591,6 +607,14 @@
               </shadow>
             </value>
           </block>
+          <block type="count_elements">
+<value name="elements">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
           <block type="controls_forEach">
             <field name="VAR" id="~a;YXk@k`X$Eb9]Z6{Me">j</field>
           </block>
@@ -598,7 +622,7 @@
             <field name="FLOW">BREAK</field>
           </block>
         </category>
-        <category name="Math" colour="#5C68A6">
+        <category name="Math" colour="#00819a">
           <block type="math_round">
             <field name="OP">ROUND</field>
             <value name="NUM">
@@ -667,6 +691,7 @@
               </shadow>
             </value>
           </block>
+          
           <block type="math_constrain">
             <value name="VALUE">
               <shadow type="math_number">
@@ -696,10 +721,27 @@
               </shadow>
             </value>
           </block>
+          
           <block type="math_random_float"></block>
           
         </category>
-        <category name="Text" colour="#5CA68D">
+        <category name="Text" colour="#dc7310">
+        <block type="change_text">
+<value name="text">
+<block type="text">
+<field name="TEXT">Text</field>
+</block>
+</value>
+<value name="element">
+<block type="element">
+<field name="element">.</field>
+<field name="NAME">class-name</field>
+</block>
+</value>
+</block>
+<block type="text">
+            <field name="TEXT"></field>
+          </block>
           <block type="text_charAt">
             <mutation at="true"></mutation>
             <field name="WHERE">FROM_START</field>
@@ -709,9 +751,7 @@
               </block>
             </value>
           </block>
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
+          
           <block type="text_append">
             <field name="VAR" id="3lD0;=:EX{.QS(1_E}e_">item</field>
             <value name="TEXT">
@@ -793,7 +833,7 @@
             </value>
           </block>
         </category>
-        <category name="Lists" colour="#745CA6">
+        <category name="Lists" colour="#d6b700">
           <block type="lists_indexOf">
             <field name="END">FIRST</field>
             <value name="VALUE">

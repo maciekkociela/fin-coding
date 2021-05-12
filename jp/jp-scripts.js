@@ -111,3 +111,58 @@ Blockly.Blocks["css_property"] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks["countdown_timer"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Countdown to a date");
+    this.appendValueInput("dateToCountdown")
+      .setCheck(null)
+      .appendField("Date to countdown to");
+    this.appendValueInput("outputTime")
+      .setCheck(null)
+      .appendField("Where to output the result?");
+    this.appendStatementInput("endCount")
+      .setCheck(null)
+      .appendField("Do this when the countdown is over");
+    this.setInputsInline(true);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["common_countdown_to"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ["Tomorrow", ""],
+        ["Day after tomorrow", "scroll-left"]
+      ]),
+      "property"
+    );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks["common_countdown_from"] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ["Tomorrow", ""],
+        ["Day after tomorrow", "scroll-left"]
+      ]),
+      "property"
+    );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};

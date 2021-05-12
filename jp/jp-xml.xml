@@ -7,5 +7,6 @@
       <block type="scroll_in_view"></block>
       <block type="tram"></block>
       <block type="css_property"></block>
+      <block type="countdown_timer"></block>
 
 </xml>

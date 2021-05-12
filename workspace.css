@@ -33,9 +33,9 @@
 
 /* Database Icon */
 
-#blockly-4 {
+.CategoryDatabase > .blocklyTreeRow:nth-child(1) {
   background-position: center;
-  background-color: #0b92e0;
+  background-color: #0b92e0 !important;
   border-color: #0b92e0;
   height: 38px;
   background-image: url("https://uploads-ssl.webflow.com/60925fad735d575b6f022918/6097e042d4faa028a1eaa929_database.svg");
@@ -43,11 +43,11 @@
   background-repeat: no-repeat;
 }
 
-[aria-expanded="false"] #blockly-4 {
+[aria-expanded="false"] > .blocklyTreeRow:nth-child(1) {
   border-color: #0b92e0 !important;
 }
 
-[aria-expanded="true"] #blockly-4 {
+[aria-expanded="true"] > .blocklyTreeRow:nth-child(1) {
   border-color: #fff !important;
 }
 
@@ -85,7 +85,7 @@
   border-width: 2px !important;
   border-style: solid !important;
   cursor: pointer;
-  transition: 0.15s;
+  transition: 0.05s ease;
 }
 .blocklyTreeRow:hover {
   /* border-color: #fff !important; */
@@ -398,8 +398,77 @@ path.blocklyPath.blockly-ws-search-highlight {
   padding: 0 !important;
 }
 
+.search-wrapper {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-widget {
+  background: #222;
+  border: 1px solid #555;
+  width: 400px;
+  height: 60px;
+  padding: 0 24px;
+  font-family: "Plus Jakarta";
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.search-box {
+  font-family: "Plus Jakarta";
+  color: #fff;
+  background: #222;
+  padding: 20px;
+  border: 1px solid #444;
+  border-top: 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-box:hover {
+  background: #444;
+}
+
 /* .hidden .flexBox a {
   position: fixed;
   right: 15px;
   top: 10px;
 } */
+
+.zelos-renderer.classic-theme .myLabelStyle .blocklyFlyoutLabelText {
+  fill: #fff;
+  font-family: "Plus Jakarta";
+}
+
+.search-box {
+  display: none;
+}
+
+.search-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+}
+
+.search-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.search_tags {
+  margin-left: 16px;
+  color: #616161;
+  font-size: 12px;
+}
+body {
+  height: 100vh;
+  overflow: hidden;
+}

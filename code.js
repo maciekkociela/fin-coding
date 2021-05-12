@@ -355,6 +355,11 @@ Blockly.JavaScript["get_data"] = function (block) {
     "table",
     Blockly.JavaScript.ORDER_ATOMIC
   );
+  var value_view = Blockly.JavaScript.valueToCode(
+    block,
+    "view",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
   var statements_fields = Blockly.JavaScript.statementToCode(block, "fields");
   var statements_do = Blockly.JavaScript.statementToCode(block, "do");
   var statements_do_in_element = Blockly.JavaScript.statementToCode(
@@ -375,7 +380,12 @@ Blockly.JavaScript["get_data"] = function (block) {
     "$.getJSON(" +
     "'https://api.airtable.com/v0/'+airtable_base+'/'+" +
     value_table +
-    "+'?api_key='+airtable_key ," +
+    "+'?api_key='+airtable_key";
+  if (value_view != "") {
+    code += "+'&view='+" + value_view;
+  }
+  code +=
+    " ," +
     "function (data_el) {" +
     "$.each(data_el.records, function (key, val) {" +
     "data.push({key:val.id});\n" +

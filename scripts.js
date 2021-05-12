@@ -1,3 +1,10 @@
+var WEBLOCKS_BASICS = "#00b894";
+var WEBLOCKS_FORMS = "#ec9e15";
+var WEBLOCKS_LOCAL = "#00bcd4";
+var WEBLOCKS_ANIMATIONS = "#6600c3";
+var WEBLOCKS_TEXTS = "#dc7310";
+var WEBLOCKS_LOOPS = "#223496";
+
 Blockly.Blocks["get_checkbox"] = {
   init: function () {
     this.appendValueInput("value")
@@ -9,7 +16,7 @@ Blockly.Blocks["get_checkbox"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#ffab19");
+    this.setColour(WEBLOCKS_FORMS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -24,7 +31,7 @@ Blockly.Blocks["change_text"] = {
       .appendField("in");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_TEXTS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -44,7 +51,7 @@ Blockly.Blocks["element"] = {
       )
       .appendField(new Blockly.FieldTextInput("class-name"), "NAME");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -63,7 +70,7 @@ Blockly.Blocks["range_slider_move"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#ffab19");
+    this.setColour(WEBLOCKS_FORMS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -71,30 +78,29 @@ Blockly.Blocks["range_slider_move"] = {
 
 Blockly.Blocks["add_class"] = {
   init: function () {
-    this.appendDummyInput().appendField(
-      new Blockly.FieldDropdown([
-        ["Add", "addClass"],
-        ["Remove", "removeClass"],
-        ["Toggle", "toggleClass"]
-      ]),
-      "NAME"
-    );
+    this.appendDummyInput().appendField("Class Editor");
     this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["Add", "addClass"],
+          ["Remove", "removeClass"],
+          ["Toggle", "toggleClass"]
+        ]),
+        "NAME"
+      )
       .appendField("class")
       .appendField(new Blockly.FieldTextInput("default"), "add_class");
+    this.appendDummyInput().appendField("to/from");
     this.appendValueInput("trigger_class")
       .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("to/from");
+      .setAlign(Blockly.ALIGN_LEFT);
     this.appendDummyInput()
-      .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("only child")
       .appendField(new Blockly.FieldCheckbox("FALSE"), "child");
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -165,35 +171,21 @@ Blockly.Blocks["submit"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#ffab19");
+    this.setColour(WEBLOCKS_FORMS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
 };
 
-// Blockly.Blocks["get_data"] = {
-//   init: function () {
-//     this.appendValueInput("var")
-//       .setCheck(null)
-//       .appendField("create airtable list");
-//     this.appendStatementInput("fields").setCheck(null);
-//     this.appendStatementInput("do").setCheck(null).appendField("do");
-//     this.setPreviousStatement(true, null);
-//     this.setNextStatement(true, null);
-//     this.setColour("#0c92e0");
-//     this.setTooltip("");
-//     this.setHelpUrl("");
-//   }
-// };
-
 Blockly.Blocks["get_data"] = {
   init: function () {
-    this.appendValueInput("var")
-      .setCheck(null)
-      .appendField("BUILD collection in");
+    this.appendDummyInput().appendField("BUILD collection in");
+    this.appendValueInput("var").setCheck(null);
     this.appendValueInput("table")
       .setCheck(null)
       .appendField("using items from table");
+    this.appendValueInput("view").setCheck(null).appendField("view");
+
     this.appendStatementInput("fields").setCheck(null);
     this.appendDummyInput().appendField("do in every element");
     this.appendStatementInput("do_in_element").setCheck(null);
@@ -251,7 +243,7 @@ Blockly.Blocks["mouse_event"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -259,14 +251,15 @@ Blockly.Blocks["mouse_event"] = {
 
 Blockly.Blocks["set_css"] = {
   init: function () {
-    this.appendStatementInput("css").setCheck(null).appendField("Set CSS");
+    this.appendDummyInput().appendField("Set CSS");
+    this.appendStatementInput("css").setCheck(null);
     this.appendValueInput("to")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("to");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -333,7 +326,7 @@ Blockly.Blocks["css_value"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -341,7 +334,7 @@ Blockly.Blocks["css_value"] = {
 
 Blockly.Blocks["animate"] = {
   init: function () {
-    this.appendDummyInput().appendField("animate");
+    this.appendDummyInput().appendField("Animate");
     this.appendStatementInput("animate").setCheck(null);
     this.appendValueInput("timing")
       .setCheck(null)
@@ -355,10 +348,12 @@ Blockly.Blocks["animate"] = {
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("easing");
-    this.appendValueInput("element")
-      .setCheck(null)
+    this.appendDummyInput()
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("element");
+    this.appendValueInput("element")
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT);
     this.appendDummyInput()
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("queue")
@@ -366,7 +361,7 @@ Blockly.Blocks["animate"] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -379,7 +374,7 @@ Blockly.Blocks["animation"] = {
       .appendField(new Blockly.FieldTextInput("value"), "value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -392,7 +387,7 @@ Blockly.Blocks["animation_easing"] = {
       "easing"
     );
     this.setOutput(true, null);
-    this.setColour(0);
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -457,7 +452,7 @@ Blockly.Blocks["animation_property"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour(WEBLOCKS_ANIMATIONS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -572,7 +567,7 @@ Blockly.Blocks["this"] = {
     this.appendDummyInput().appendField("this");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -584,7 +579,7 @@ Blockly.Blocks["to_number"] = {
       .appendField("change into number");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_LOCAL);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -679,7 +674,7 @@ Blockly.Blocks["update_airtable_list"] = {
 Blockly.Blocks["tutorial"] = {
   init: function () {
     this.appendDummyInput().appendField("tutorial");
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -688,7 +683,7 @@ Blockly.Blocks["tutorial"] = {
 Blockly.Blocks["cloneable"] = {
   init: function () {
     this.appendDummyInput().appendField("cloneable");
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -700,7 +695,7 @@ Blockly.Blocks["get_cookie"] = {
       .appendField("get cookie value")
       .appendField(new Blockly.FieldTextInput("cookieName"), "cookieName");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -715,7 +710,7 @@ Blockly.Blocks["set_cookies"] = {
       .appendField("value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -725,7 +720,7 @@ Blockly.Blocks["undefined"] = {
   init: function () {
     this.appendDummyInput().appendField("undefined");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -739,7 +734,7 @@ Blockly.Blocks["set_value"] = {
       .appendField("update value in input");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#ffab19");
+    this.setColour(WEBLOCKS_FORMS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -750,7 +745,7 @@ Blockly.Blocks["set_cookie_value"] = {
     this.appendValueInput("cookie").setCheck(null).appendField("set local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_LOCAL);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -761,7 +756,7 @@ Blockly.Blocks["get_cookie_value"] = {
     this.appendValueInput("cookie").setCheck(null).appendField("get local");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_LOCAL);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -890,7 +885,7 @@ Blockly.Blocks["reload_page"] = {
     this.appendDummyInput().appendField("reload page");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -918,35 +913,33 @@ Blockly.Blocks["reload_page"] = {
 //   }
 // };
 
-Blockly.Blocks["create_list_related"] = {
-  init: function () {
-    this.appendValueInput("NAME")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("BUILD collection in");
-    this.appendValueInput("table")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("using items from table");
-    this.appendValueInput("releted")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("releted with table");
-    this.appendValueInput("id")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("item");
-    this.appendStatementInput("fields").setCheck(null);
-    this.appendDummyInput().appendField("do when loaded");
-    this.appendStatementInput("do").setCheck(null);
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#0c92e0");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
+// Blockly.Blocks["create_list_related"] = {
+//   init: function () {
+//     this.appendDummyInput().appendField("BUILD collection in");
+//     this.appendValueInput("NAME").setCheck(null);
+//     this.appendValueInput("table")
+//       .setCheck(null)
+//       .setAlign(Blockly.ALIGN_RIGHT)
+//       .appendField("using items from table");
+//     this.appendValueInput("releted")
+//       .setCheck(null)
+//       .setAlign(Blockly.ALIGN_RIGHT)
+//       .appendField("releted with table");
+//     this.appendValueInput("id")
+//       .setCheck(null)
+//       .setAlign(Blockly.ALIGN_RIGHT)
+//       .appendField("item");
+//     this.appendStatementInput("fields").setCheck(null);
+//     this.appendDummyInput().appendField("do when loaded");
+//     this.appendStatementInput("do").setCheck(null);
+//     this.setInputsInline(false);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour("#0c92e0");
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
 
 Blockly.Blocks["change_table"] = {
   init: function () {
@@ -965,7 +958,7 @@ Blockly.Blocks["browser_language"] = {
   init: function () {
     this.appendDummyInput().appendField("browser language");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1043,7 +1036,7 @@ Blockly.Blocks["get_attr"] = {
       .appendField(new Blockly.FieldTextInput("attribute"), "attribute")
       .appendField("from");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1056,7 +1049,7 @@ Blockly.Blocks["redirect_to"] = {
       .appendField(new Blockly.FieldTextInput("page"), "page");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1081,7 +1074,7 @@ Blockly.Blocks["get_script"] = {
     this.appendValueInput("script").setCheck(null).appendField("get script");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1124,14 +1117,10 @@ Blockly.Blocks["add_user_field"] = {
 
 Blockly.Blocks["create_list_related_lookup"] = {
   init: function () {
-    this.appendValueInput("NAME")
-      .setCheck(null)
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("BUILD collection in");
-    this.appendValueInput("table")
-      .setCheck("String")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("using records from table");
+    this.appendDummyInput().appendField("BUILD collection in");
+    this.appendValueInput("NAME").setCheck(null);
+    this.appendDummyInput().appendField("using records from table");
+    this.appendValueInput("table").setCheck("String");
     this.appendValueInput("related")
       .setCheck(null)
       .setAlign(Blockly.ALIGN_RIGHT)
@@ -1196,7 +1185,7 @@ Blockly.Blocks["element_from_variable"] = {
         "element"
       );
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1220,7 +1209,7 @@ Blockly.Blocks["count_elements"] = {
       .setCheck(null)
       .appendField("count elements");
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_LOOPS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1232,7 +1221,7 @@ Blockly.Blocks["element_number"] = {
     this.appendValueInput("element").setCheck(null).appendField("#");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1256,7 +1245,7 @@ Blockly.Blocks["redirect_to_url"] = {
     this.appendValueInput("url").setCheck(null).appendField("redirect to");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1269,7 +1258,7 @@ Blockly.Blocks["block_section"] = {
       "block"
     );
     this.appendStatementInput("NAME").setCheck(null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
     this.setPreviousStatement(true, null);
@@ -1285,7 +1274,7 @@ Blockly.Blocks["page_attribute"] = {
     this.appendStatementInput("blocks").setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1299,7 +1288,7 @@ Blockly.Blocks["update_input_using_value"] = {
     this.appendValueInput("value").setCheck(null).appendField("using value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#ffab19");
+    this.setColour(WEBLOCKS_FORMS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1311,7 +1300,7 @@ Blockly.Blocks["current"] = {
     this.appendDummyInput().appendField("Current Link");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_BASICS);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -1325,7 +1314,7 @@ Blockly.Blocks["get_local_with_initial"] = {
       .appendField("set initial value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#00b894");
+    this.setColour(WEBLOCKS_LOCAL);
     this.setTooltip("");
     this.setHelpUrl("");
   }

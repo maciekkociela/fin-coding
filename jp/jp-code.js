@@ -66,3 +66,55 @@ Blockly.JavaScript["css_property"] = function (block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };
+
+Blockly.JavaScript["countdown_timer"] = function (block) {
+  var value_datetocountdown = Blockly.JavaScript.valueToCode(
+    block,
+    "dateToCountdown",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_outputtime = Blockly.JavaScript.valueToCode(
+    block,
+    "outputTime",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var statements_endcount = Blockly.JavaScript.statementToCode(
+    block,
+    "endCount"
+  );
+
+  // TODO: Assemble JavaScript into code variable.
+  var code = `
+  
+  var d = $(${value_datetocountdown}).html();
+d = '"' + d + '"';
+var countDownDate = new Date(d).getTime();
+var x = setInterval(function() {
+
+var now = new Date().getTime();
+
+var distance = countDownDate - now;
+var o = $(${value_outputtime});
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+if (distance < 0) {
+clearInterval(x);
+${statements_endcount}
+}
+
+  if (days === 0) {
+  	o.html(hours + " hours " + minutes + " minutes " + seconds + " seconds ");
+  } else if (days === 1){
+  	o.html(days + " day " + hours + " hours " + minutes + " minutes " + seconds + " seconds ");
+  } else {
+  	o.html(days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ");
+  }
+
+
+}, 1000);`;
+  return code;
+};
